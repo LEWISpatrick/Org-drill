@@ -1,0 +1,396 @@
+* Question 1
+** Question
+1
+1
+** Hint
+s to Exercises 1.1
+** Answer
+s to Exercises 1.1
+
+* Question 2
+** Question
+Given that the official purpose of the U
+** Hint
+s to Exercises 1.2
+** Answer
+s to Exercises 1.2
+
+* Question 3
+** Question
+a
+** Hint
+s to Exercises 1.3
+** Answer
+s to Exercises 1.3
+
+* Question 4
+** Question
+Design an algorithm for computing
+** Hint
+s to Exercises 1.4
+** Answer
+s may vary but most students should be familiar with sequential
+
+* Question 5
+** Question
+a
+** Hint
+s to Exercises 2.1
+** Answer
+the same questions for the adjacency list representation.
+
+* Question 6
+** Question
+
+** Hint
+s to Exercises 2.2
+** Answer
+s to Exercises 1.4
+
+* Question 7
+** Question
+What does Euclid
+** Hint
+s to Exercises 2.3
+** Answer
+thesamequestionsforthedefinition-basedalgorithmformatrix
+
+* Question 8
+** Question
+a
+** Hint
+s to Exercises 2.4
+** Answer
+s to Exercises 2.1
+
+* Question 9
+** Question
+a
+** Hint
+s to Exercises 2.5
+** Answer
+s to Exercises 2.2
+
+* Question 10
+** Question
+The extended Euclid
+** Hint
+s to Exercises 2.6
+** Answer
+questions a—e of Problem 4 about this algorithm.
+
+* Question 11
+** Question
+Locker doors There are n lockers in a hallway numbered sequentially
+from 1 to n
+** Hint
+s to Exercises 3.1
+** Answer
+the questions a—e of Problem 4 about this algorithm.
+
+* Question 12
+** Question
+On the ith pass
+** Hint
+s to Exercises 3.2
+** Answer
+s to Exercises 2.3
+
+* Question 13
+** Question
+1
+1
+** Hint
+s to Exercises 3.3
+** Answer
+s to Exercises 2.4
+
+* Question 14
+** Question
+Onecanfindargumentssupportingeitherview
+** Hint
+s to Exercises 3.4
+** Answer
+s to Exercises 2.5
+
+* Question 15
+** Question
+Youmayassumethatyouarewritingyouralgorithmsforahumanrather
+thanamachine
+** Hint
+s to Exercises 4.1
+** Answer
+s to Exercises 2.6
+
+* Question 16
+** Question
+There is a qui
+** Hint
+s to Exercises 4.2
+** Answer
+s to Exercises 3.1
+
+* Question 17
+** Question
+a
+** Hint
+s to Exercises 4.3
+** Answer
+s to Exercises 3.2
+
+* Question 18
+** Question
+Prove that if d divides both m and n
+** Hint
+s to Exercises 4.4
+** Answer
+s to Exercises 3.3
+
+* Question 19
+** Question
+Perform one iteration of the algorithm for two arbitrarily chosen integers
+m
+** Hint
+s to Exercises 4.5
+** Answer
+s to Exercises 3.4
+
+* Question 20
+** Question
+The answer to part
+** Hint
+s to Exercises 4.6
+** Answer
+s to Exercises 4.1
+
+* Question 21
+** Question
+9
+** Hint
+s to Exercises 5.1
+** Answer
+the same question for decreasing arrays.
+
+* Question 22
+** Question
+b
+** Hint
+s to Exercises 5.2
+** Answer
+s to Exercises 4.2
+
+* Question 23
+** Question
+You should exploit a connection of this question to the question of part
+** Hint
+s to Exercises 5.3
+** Answer
+s to Exercises 4.3
+
+* Question 24
+** Question
+Of course
+** Hint
+s to Exercises 5.4
+** Answer
+s to Exercises 4.4
+
+* Question 25
+** Question
+Tracing the algorithm by hand for
+** Hint
+s to Exercises 5.5
+** Answer
+s to Exercises 4.5
+
+* Question 26
+** Question
+1
+1
+** Hint
+s to Exercises 5.6
+** Answer
+s to Exercises 4.6
+
+* Question 27
+** Question
+This legal issue has yet to be settled
+** Hint
+s to Exercises 6.1
+** Answer
+the same questions for the smallest number of
+
+* Question 28
+** Question
+n
+** Hint
+s to Exercises 6.2
+** Answer
+ing the questions for an array of three elements should lead to
+
+* Question 29
+** Question
+A straightforward algo
+** Hint
+s to Exercises 6.3
+** Answer
+s to Exercises 5.1
+
+* Question 30
+** Question
+4 and 12
+** Hint
+s to Exercises 6.4
+** Answer
+this question for connected graphs first.
+
+* Question 31
+** Question
+a
+** Hint
+s to Exercises 6.5
+** Answer
+s to Exercises 5.2
+
+* Question 32
+** Question
+b
+** Hint
+s to Exercises 6.6
+** Answer
+s to Exercises 5.3
+
+* Question 33
+** Question
+Therefore
+** Hint
+s to Exercises 7.1
+** Answer
+s to Exercises 5.4
+
+* Question 34
+** Question
+Let us first prove that if d divides two integers u and v
+** Hint
+s to Exercises 7.2
+** Answer
+s to Exercises 5.5
+
+* Question 35
+** Question
+For any input pair m
+** Hint
+s to Exercises 7.3
+** Answer
+s to Exercises 5.6
+
+* Question 36
+** Question
+a
+** Hint
+s to Exercises 7.4
+** Answer
+s to Exercises 6.1
+
+* Question 37
+** Question
+Note
+** Hint
+s to Exercises 8.1
+** Answer
+s to Exercises 6.2
+
+* Question 38
+** Question
+9
+** Hint
+s to Exercises 8.2
+** Answer
+s to Exercises 6.3
+
+* Question 39
+** Question
+Consequently
+** Hint
+s to Exercises 8.3
+** Answer
+s to Exercises 6.4
+
+* Question 40
+** Question
+n
+** Hint
+s to Exercises 8.4
+** Answer
+s to Exercises 6.5
+
+* Question 41
+** Question
+Since all the doors are initially closed
+** Hint
+s to Exercises 9.1
+** Answer
+s to Exercises 6.6
+
+* Question 42
+** Question
+Hence doors that are in the positions that are perfect squares and only
+such doors will be open after the las
+** Hint
+s to Exercises 9.2
+** Answer
+s to Exercises 7.1
+
+* Question 43
+** Question
+2
+1
+** Hint
+s to Exercises 9.3
+** Answer
+the same question for the Boyer-Moore algorithm.
+
+* Question 44
+** Question
+NewWorldpuzzle Therearefourpeoplewhowanttocrossabridge
+** Hint
+s to Exercises 9.4
+** Answer
+s to Exercises 7.2
+
+* Question 45
+** Question
+Which of the following formulas can be considered an algorithm for com
+** Hint
+s to Exercises 10.1
+** Answer
+the following questions for the separate-chaining version of hash-
+
+* Question 46
+** Question
+Write a pseudocode for an algorithm for finding real roots of equation
+ax2
+** Hint
+s to Exercises 10.2
+** Answer
+s to Exercises 7.3
+
+* Question 47
+** Question
+Describe the standard algorithm for finding the binary representation of
+a positive decimal integer
+a
+** Hint
+s to Exercises 10.3
+** Answer
+s to Exercises 7.4
+
+* Question 48
+** Question
+Describe the algorithm used by your favorite ATM machine in dispensing
+cash
+** Hint
+s to Exercises 10.4
+** Answer
+s to Exercises 8.1
+
