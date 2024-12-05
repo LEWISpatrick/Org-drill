@@ -1,8 +1,9 @@
 * Drill Questions
 
-* Question 1                                                            :drill:
+* Question 1                                                          :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       fdc59a89-0ca4-4a69-8949-d401a776681c
   :END:
 ** Front
    Do some research on al-Khorezmi (also al-Khwarizmi), the man from whose name the word "algorithm" is derived. In particular, you should learn what the origins of the words "algorithm" and "algebra" have in common.
@@ -12,6 +13,7 @@
 * Question 2                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       b80b3e54-d778-4d1a-9100-45a3621c42bd
   :END:
 ** Front
    Given that the official purpose of the U.S. patent system is the promotion of the “useful arts,” do you think algorithms are patentable in this country? Should they be?
@@ -21,6 +23,7 @@
 * Question 3                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       ff122daa-5178-46de-a58d-4eb068dbd4b8
   :END:
 ** Front
    Write down driving directions for going from your school to your home with the precision required by an algorithm.
@@ -30,6 +33,7 @@
 * Question 4                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       bf7d2145-c485-41c5-a235-bb5214faa3b4
   :END:
 ** Front
    Write down a recipe for cooking your favorite dish with the precision required by an algorithm.
@@ -39,6 +43,7 @@
 * Question 5                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       3dd74bbe-9e3c-4ffd-9876-1ded8b0747a0
   :END:
 ** Front
    Design an algorithm for computing √n for any positive integer n. Besides assignment and comparison, your algorithm may only use the four basic arithmetical operations.
@@ -53,6 +58,7 @@
 * Question 6                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       d54153b0-975c-42a4-b540-8673af133278
   :END:
 ** Front
    Find gcd(31415, 14142) by applying Euclid’s algorithm.
@@ -62,6 +68,7 @@
 * Question 7                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       ea84b923-a0a4-41a6-b1cd-88541f795156
   :END:
 ** Front
    Estimate how many times faster it will be to find gcd(31415, 14142) by Euclid’s algorithm compared with the algorithm based on checking consecutive integers from min{m, n} down to gcd(m, n).
@@ -71,6 +78,7 @@
 * Question 8                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       6bfacf37-5cd5-4a6d-91cd-2dd888db6899
   :END:
 ** Front
    Prove the equality gcd(m, n) = gcd(n, m mod n) for every pair of positive integers m and n.
@@ -80,6 +88,7 @@
 * Question 9                                                            :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       6447543a-5586-404d-bb35-f54ad2dfd970
   :END:
 ** Front
    What does Euclid’s algorithm do for a pair of numbers in which the first number is smaller than the second one? What is the largest number of times this can happen during the algorithm’s execution on such an input?
@@ -89,6 +98,7 @@
 * Question 10                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       d446967b-5e9a-4d8a-9d3b-b52c96a6b560
   :END:
 ** Front
    What is the smallest number of divisions made by Euclid’s algorithm among all inputs 1 ≤ m, n ≤ 10?
@@ -98,6 +108,7 @@
 * Question 11                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       6733f84e-533f-4c11-911b-b1345cfa3eb3
   :END:
 ** Front
    Euclid’s algorithm, as presented in Euclid’s treatise, uses subtractions rather than integer divisions. Write a pseudocode for this version of Euclid’s algorithm.
@@ -115,6 +126,7 @@
 * Question 12                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       ebc289c4-bab1-43dc-a5b7-7cba5acd4602
   :END:
 ** Front
    Euclid’s game (see [Bog]) starts with two unequal positive numbers on the board. Two players move in turn. On each move, a player has to write on the board a positive number equal to the difference of two numbers already on the board; this number must be new, i.e., different from all the numbers already on the board. The player who cannot move loses the game. Should you choose to move first or second in this game?
@@ -124,6 +136,7 @@
 * Question 13                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       44fb645d-aa62-4a52-a5a3-206bb953b5cb
   :END:
 ** Front
    The extended Euclid's algorithm determines not only the greatest common divisor d of two positive integers m and n but also integers (not necessarily positive) x and y, such that mx + ny = d.
@@ -143,6 +156,7 @@
 * Question 14                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       1f34d714-f3d9-46a8-8ca9-7ffe4169e0fe
   :END:
 ** Front
    Look up a description of the extended Euclid’s algorithm (see, e.g., [KnuI], p. 13) and implement it in the language of your choice.
@@ -152,6 +166,7 @@
 * Question 15                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       8fe2f295-678d-43ae-9b22-349a96308381
   :END:
 ** Front
    Modify your program for finding integer solutions to the Diophantine equation ax + by = c with any set of integer coefficients a, b, and c.
@@ -161,6 +176,7 @@
 * Question 16                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       4554b3ac-1c00-4738-957a-67700e711003
   :END:
 ** Front
    Locker doors There are n lockers in a hallway numbered sequentially from 1 to n. Initially, all the locker doors are closed. You make n passes by the lockers, each time starting with locker #1. On the ith pass, i = 1, 2, ..., n, you toggle the door of every ith locker: if the door is closed, you open it, if it is open, you close it. For example, after the first pass every door is open; on the second pass you only toggle the even-numbered lockers (#2, #4, ...) so that after the second pass the even doors are closed and the odd ones are opened; the third time through you close the door of locker #3 (opened from the first pass), open the door of locker #6 (closed from the second pass), and so on. After the last pass, which locker doors are open and which are closed? How many of them are open?
@@ -170,6 +186,7 @@
 * Question 17                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       1e1cca23-26f5-4dc7-ad61-94ca66dd55a8
   :END:
 ** Front
    Old World puzzle A peasant finds himself on a riverbank with a wolf, a goat, and a head of cabbage. He needs to transport all three to the other side of the river in his boat. However, the boat has room for only the peasant himself and one other item (either the wolf, the goat, or the cabbage). In his absence, the wolf would eat the goat, and the goat would eat the cabbage. Solve this problem for the peasant or prove it has no solution. (Note: The peasant is a vegetarian but does not like cabbage and hence can eat neither the goat nor the cabbage to help him solve the problem. And it goes without saying that the wolf is a protected species.)
@@ -187,6 +204,7 @@
 * Question 18                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       a4c8195a-e48a-4861-abe9-cbabc8bc739a
   :END:
 ** Front
    New World puzzle There are four people who want to cross a bridge; they all begin on the same side. You have 17 minutes to get them all across to the other side. It is night, and they have one flashlight. A maximum of two people can cross the bridge at one time. Any party that crosses, either one or two people, must have the flashlight with them. The flashlight must be walked back and forth; it cannot be thrown, for example. Person 1 takes 1 minute to cross the bridge, person 2 takes 2 minutes, person 3 takes 5 minutes, and person 4 takes 10 minutes. A pair must walk together at the rate of the slower person's pace. For example, if person 1 and person 4 walk across first, 10 minutes have elapsed when they get to the other side of the bridge. If person 4 returns the flashlight, a total of 20 minutes have passed and you have failed the mission. (Note: According to a rumor on the Internet, interviewers at a well-known software company located near Seattle have given this problem to interviewees.)
@@ -202,6 +220,7 @@
 * Question 19                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       14dba247-7835-4901-8b13-d8cf734e2705
   :END:
 ** Front
    Which of the following formulas can be considered an algorithm for computing the area of a triangle whose side lengths are given positive numbers a, b, and c?
@@ -214,6 +233,7 @@
 * Question 20                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       f6d75ec8-40c7-481a-abc4-70ff2c832c0c
   :END:
 ** Front
    Write a pseudocode for an algorithm for finding real roots of equation ax² + bx + c = 0 for arbitrary real coefficients a, b, and c. (You may assume the availability of the square root function sqrt(x).)
@@ -232,6 +252,7 @@
 * Question 21                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       d7dea634-3441-4f03-b13c-0818c1755b18
   :END:
 ** Front
    Describe the standard algorithm for finding the binary representation of a positive decimal integer
@@ -256,6 +277,7 @@
 * Question 22                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       1729f3e2-02c7-4257-9b51-c2a892e79591
   :END:
 ** Front
    Describe the algorithm used by your favorite ATM machine in dispensing cash. (You may give your description in either English or a pseudocode, whichever you find more convenient.)
@@ -285,6 +307,7 @@
 * Question 23                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       487a9372-9768-4d6e-bc66-7a17df10ee22
   :END:
 ** Front
    a. Can the problem of computing the number π be solved exactly?
@@ -302,6 +325,7 @@
 * Question 24                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       fc6515b4-8720-430f-add5-6627d2a376e5
   :END:
 ** Front
    Give an example of a problem other than computing the greatest common divisor for which you know more than one algorithm. Which of them is simpler? Which is more efficient?
@@ -320,6 +344,7 @@
 * Question 25                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       1ad60dd8-14f2-4e01-9dec-2b1dfffe769b
   :END:
 ** Front
    Consider the following algorithm for finding the distance between the two closest elements in an array of numbers.
@@ -352,6 +377,7 @@
 * Question 26                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       8c57d09b-162c-402f-80c7-57ecf457f4b6
   :END:
 ** Front
    One of the most influential books on problem solving, titled How To Solve It [Pol57], was written by the Hungarian-American mathematician George Polya (1887—1985). Polya summarized his ideas in a four-point summary. Find this summary on the Web or, better yet, in his book, and compare it with the plan outlined in Section 1.2. What do they have in common? How are they different?
@@ -371,6 +397,7 @@
 * Question 27                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       2dd09130-2918-4ee9-b358-69618f2a091e
   :END:
 ** Front
    Name the algorithms for the searching problem that you already know. Give a good succinct description of each algorithm in English. (If you know no such algorithms, use this opportunity to design one.)
@@ -384,6 +411,7 @@
 * Question 28                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       c25e8ed9-9927-40a9-b009-a9adfd08a27e
   :END:
 ** Front
    Design a simple algorithm for the string-matching problem
@@ -404,6 +432,7 @@
 * Question 29                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       3b9eb67f-0217-4260-882d-fd3bd2907966
   :END:
 ** Front
    Consider the following problem: Design an algorithm to determine the best route for a subway passenger to take from one designated station to another in a well-developed subway system similar to those in such cities as Washington, D.C., and London, UK.
@@ -428,6 +457,7 @@
 * Question 30                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       7b1edcf4-b1a8-4dd7-b735-853ef292a1b8
   :END:
 ** Front
    a. Rephrase the traveling salesman problem in combinatorial object terms.
@@ -447,6 +477,7 @@
 * Question 31                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       5814162b-d523-4be0-8ecc-13f2a5df309d
   :END:
 ** Front
    Design an algorithm for the following problem: Given a set of n points in the Cartesian plane, determine whether all of them lie on the same circumference.
@@ -466,6 +497,7 @@
 * Question 32                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       5286a6ec-87e3-4008-8c12-f7f44ed3a7f9
   :END:
 ** Front
    Write a program that reads as its inputs the (x, y) coordinates of the endpoints of two line segments P1Q1 and P2Q2 and determines whether the segments have a common point.
@@ -486,6 +518,7 @@
 * Question 33                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       2a1100af-bcae-4b38-bb7f-2af6a9637f22
   :END:
 ** Front
    Describe how one can implement each of the following operations on an array so that the time it takes does not depend on the array's size n.
@@ -508,6 +541,7 @@
 * Question 34                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       f8510e8f-a1e3-4c2d-a11e-f04f4b613b7e
   :END:
 ** Front
    If you have to solve the searching problem for a list of n numbers, how can you take advantage of the fact that the list is known to be sorted? Give separate answers for
@@ -528,6 +562,7 @@
 * Question 35                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       c13001ba-b3a1-4166-8368-697261b7ddb2
   :END:
 ** Front
    a. Show the stack after each operation of the following sequence that starts with the empty stack:
@@ -553,6 +588,7 @@
 * Question 36                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       d8da62b6-bbc1-4b29-9841-23606b236237
   :END:
 ** Front
    a. Let A be the adjacency matrix of an undirected graph. Explain what property of the matrix indicates that
@@ -573,6 +609,7 @@
 * Question 37                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       6e7bf857-c45a-4258-8d3b-7850f1fc0aa7
   :END:
 ** Front
    Give a detailed description of an algorithm for transforming a free tree into a tree rooted at a given vertex of the free tree.
@@ -589,6 +626,7 @@
 * Question 38                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       5f04f112-fb35-4d02-92b8-537e5e62dee3
   :END:
 ** Front
    Prove the inequalities that bracket the height of a binary tree with n vertices:
@@ -610,6 +648,7 @@
 * Question 39                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       d02793ec-f4a9-4350-afd9-c3229c8ab09d
   :END:
 ** Front
    Indicate how the ADT priority queue can be implemented as
@@ -633,6 +672,7 @@
 * Question 40                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       3d400fd8-5efc-4f96-ad36-11b3da064e12
   :END:
 ** Front
    How would you implement a dictionary of a reasonably small size n if you knew that all its elements are distinct (e.g., names of 50 states of the United States)? Specify an implementation of each dictionary operation.
@@ -652,6 +692,7 @@
 * Question 41                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       2c22cac0-c445-4d2c-b1f3-89c746163d53
   :END:
 ** Front
    For each of the following applications, indicate the most appropriate data structure:
@@ -672,6 +713,7 @@
 * Question 42                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       bf43a59b-ca4c-4d5d-aa27-930d4cfc7c77
   :END:
 ** Front
    Anagram checking Design an algorithm for checking whether two given words are anagrams, i.e., whether one word can be obtained by permuting the letters of the other. (For example, the words tea and eat are anagrams.)
@@ -690,6 +732,7 @@
 * Question 43                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       e222e894-0d4f-4f42-85e9-84fc966fbcc4
   :END:
 ** Front
    For each of the following algorithms, indicate (i) a natural size metric for its inputs; (ii) its basic operation; (iii) whether the basic operation count can be different for inputs of the same size:
@@ -728,6 +771,7 @@
 * Question 44                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       72e2abe1-ba88-4517-b316-86b556850951
   :END:
 ** Front
    a. Consider the definition-based algorithm for adding two n-by-n matrices. What is its basic operation? How many times is it performed as a function of the matrix order n? As a function of the total number of elements in the input matrices?
@@ -745,6 +789,7 @@
 * Question 45                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       3b70538c-f7c0-4ef9-a87b-109a02406047
   :END:
 ** Front
    Consider a variation of sequential search that scans a list to return the number of occurrences of a given search key in the list. Will its efficiency differ from the efficiency of classic sequential search?
@@ -760,6 +805,7 @@
 * Question 46                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       4e26d827-8318-4433-b6f0-bec50c7c1d22
   :END:
 ** Front
    a. Glove selection There are 22 gloves in a drawer: 5 pairs of red gloves, 4 pairs of yellow, and 2 pairs of green. You select the gloves in the dark and can check them only after a selection has been made. What is the smallest number of gloves you need to select to have at least one matching pair in the best case? in the worst case? (after [Mos01], #18)
@@ -776,6 +822,7 @@
 * Question 47                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       48f340d2-f521-4c22-a87a-80c76a1b8097
   :END:
 ** Front
    a. Prove formula (2.1) for the number of bits in the binary representation of a positive integer.
@@ -795,6 +842,7 @@
 * Question 48                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       b461d7dc-d072-43d2-a375-3e9f5cecadf0
   :END:
 ** Front
    Suggest how any sorting algorithm can be augmented in a way to make the best-case count of its key comparisons equal to just n − 1 (n is a list’s size, of course). Do you think it would be a worthwhile addition to any sorting algorithm?
@@ -810,6 +858,7 @@
 * Question 49                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       63e8f2b6-c717-4a48-afac-a533ee7785c2
   :END:
 ** Front
    Gaussian elimination, the classic algorithm for solving systems of n linear equations in n unknowns, requires about 1/3n³ multiplications, which is the algorithm’s basic operation.
@@ -827,6 +876,7 @@
 * Question 50                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       dba5769b-9528-4b54-9595-f6e94b100700
   :END:
 ** Front
    Indicate whether the first function of each of the following pairs has a smaller, same, or larger order of growth (to within a constant multiple) than the second function.
@@ -847,6 +897,7 @@
 * Question 51                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       44b7da6a-f462-433f-98e1-031d67ec28b2
   :END:
 ** Front
    Invention of chess According to a well-known legend, the game of chess was invented many centuries ago in northwestern India by a sage named Shashi. When he took his invention to his king, the king liked the game so much that he offered the inventor any reward he wanted. Sashi asked for some grain to be obtained as follows: just a single grain of wheat was to be placed on the first square of the chess board, two on the second, four on the third, eight on the fourth, and so on, until all 64 squares had been filled. What would the ultimate result of this algorithm have been?
@@ -861,6 +912,7 @@
 * Question 52                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       df7cc12f-93fa-4995-8f7b-4882f152e677
   :END:
 ** Front
    Use the most appropriate notation among O, Θ, and Ω to indicate the time efficiency class of sequential search (see Section 2.1)
@@ -875,6 +927,7 @@
 * Question 53                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       7c462a9f-c8c2-4d52-afc2-03722f845533
   :END:
 ** Front
    Use the informal definitions of O, Θ, and Ω to determine whether the following assertions are true or false.
@@ -891,6 +944,7 @@
 * Question 54                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       12695b37-32ad-46ab-b78c-e8649877823f
   :END:
 ** Front
    For each of the following functions, indicate the class Θ(g(n)) the function belongs to. (Use the simplest g(n) possible in your answers.) Prove your assertions.
@@ -909,6 +963,7 @@
 * Question 55                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       80793527-e09c-46e5-8cf5-4cf7a053cbb3
   :END:
 ** Front
    a. Table 2.1 contains values of several functions that often arise in analysis of algorithms. These values certainly suggest that the functions log n, n, n log n, n², n³, 2^n, n! are listed in increasing order of their order of growth. Do these values prove this fact with mathematical certainty?
@@ -926,6 +981,7 @@
 * Question 56                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       d75544ba-e879-404d-bf6b-86de1dd2229f
   :END:
 ** Front
    Order the following functions according to their order of growth (from the lowest to the highest):
@@ -943,6 +999,7 @@
 * Question 57                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       3b480e76-ce0f-4fe8-9ccd-82a918862ec1
   :END:
 ** Front
    a. Prove that every polynomial of degree k, p(n) = a_k n^k + a_(k−1) n^(k−1) + ... + a_0, with a_k > 0 belongs to Θ(n^k).
@@ -961,6 +1018,7 @@
 * Question 58                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       2a99237c-5bd0-4379-b383-bbfa570b635d
   :END:
 ** Front
    Prove (by using the definitions of the notations involved) or disprove (by giving a specific counterexample) the following assertions.
@@ -978,6 +1036,7 @@
 * Question 59                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       ba87b204-4e5f-45a8-854b-828baddc573a
   :END:
 ** Front
    Prove the section's theorem for
@@ -995,6 +1054,7 @@
 * Question 60                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       ef0c9aed-5962-4d49-a90a-4a2caf163d11
   :END:
 ** Front
    We mentioned in this section that one can check whether all elements of an array are distinct by a two-part algorithm based on the array's presorting.
@@ -1013,6 +1073,7 @@
 * Question 61                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       83b146c4-4f30-4496-8a04-96c62bbae0cd
   :END:
 ** Front
    Door in a wall You are facing a wall that stretches infinitely in both directions. There is a door in the wall, but you know neither how far away nor in which direction. You can see the door only when you are right next to it. Design an algorithm that enables you to reach the door by walking at most O(n) steps where n is the (unknown to you) number of steps between your initial position and the door. [Par95], #652
@@ -1034,6 +1095,7 @@
 * Question 62                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       42f83674-6931-47c1-a9de-3c1a12baa549
   :END:
 ** Front
    Compute the following sums.
@@ -1072,6 +1134,7 @@
 * Question 63                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       945b2b3e-8ec0-44f4-ba84-cc6f080d17c0
   :END:
 ** Front
    Find the order of growth of the following sums.
@@ -1095,6 +1158,7 @@
 * Question 64                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       225bc4c0-b51d-474d-bfa5-f0ba477430f9
   :END:
 ** Front
    The sample variance of n measurements x₁, x₂, ..., xₙ can be computed as
@@ -1117,6 +1181,7 @@
 * Question 65                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       700cd9d4-567c-4add-93fd-9e26af7e36fe
   :END:
 ** Front
    Consider the following algorithm.
@@ -1143,6 +1208,7 @@
 * Question 66                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       c20bdd64-d6da-4e68-a8b9-a6e78a1def62
   :END:
 ** Front
    Consider the following algorithm.
@@ -1166,6 +1232,7 @@
 * Question 67                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       74129f79-bcd1-4796-a8de-24b66220d4b1
   :END:
 ** Front
    Consider the following algorithm.
@@ -1197,6 +1264,7 @@
 * Question 68                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       398c5d4f-b02e-41e8-b31f-002f290d2fd7
   :END:
 ** Front
    Improve the implementation of the matrix multiplication algorithm (see Example 3) by reducing the number of additions made by the algorithm. What effect will this change have on the algorithm's efficiency?
@@ -1210,6 +1278,7 @@
 * Question 69                                                           :drill:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
+  :ID:       5f7510d2-4f82-4857-9f05-4e8dc59d9390
   :END:
 ** Front
    Solve the following recurrence relations.
@@ -1271,5 +1340,8 @@
    = x(3k−k) + k = x(1) + k = 1 + log3 n.
 
 * Question 70                                                           :drill:
+:PROPERTIES:
+:ID:       aa46282d-665a-44aa-a591-d0a4b3814d36
+:END:
   :PROPERTIES:
   :DRILL_CARD_TYPE: twosided
