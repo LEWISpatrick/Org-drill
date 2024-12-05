@@ -1,0 +1,2262 @@
+* Drill Questions
+
+** Question 1
+   - PROMPT ::Do some research on al-Khorezmi (also al-Khwarizmi), the man from
+whose name the word “algorithm” is derived. In particular, you should
+learn what the origins of the words “algorithm” and “algebra” have in
+common.
+   - HINT   :: It is probably faster to do this by searching the Web, but your library
+should be able to help too.
+   - ANSWER ::Al-Khwarizmi (9th century C.E.) was a great Arabic scholar, most famous for his algebra textbook. In fact, the word “algebra” is derived
+from the Arabic title of this book while the word “algorithm” is derived
+from a translation of Al-Khwarizmi’s last name (see, e.g., [KnuI], pp. 1-2,
+[Knu96], pp. 88-92, 114).
+
+** Question 2
+   - PROMPT :: Given that the official purpose of the U.S. patent system is the promotion of the “useful arts,” do you think algorithms are patentable in this
+country? Should they be?
+   - HINT   :: One can find arguments supporting either view. There is a well-established
+principle pertinent to the matter though: scientific facts or mathematical
+expressions of them are not patentable. (Why do you think it is the case?)
+But should this preclude granting patents for all algorithms?
+   - ANSWER ::This legal issue has yet to be settled. The current legal state of affairs
+distinguishes mathematical algorithms, which are not patentable, from
+other algorithms, which may be patentable if implemented as computer
+programs (e.g., [Cha00]). 
+
+** Question 3
+   - PROMPT ::Write down driving directions for going from your school to your home
+with the precision required by an algorithm. 
+   - HINT   :: You may assume that you are writing your algorithms for a human rather
+than a machine. Still, make sure that your descriptions do not contain obvious ambiguities. Knuth [KnuI], p.6 provides an interesting comparison
+between cooking recipes and algorithms.
+   - ANSWER :: Step-by-step driving directions specific to the participant’s location.
+
+** Question 4
+   - PROMPT :: Write down a recipe for cooking your favorite dish with the precision
+required by an algorithm.
+   - HINT   :: You may assume that you are writing your algorithms for a human rather
+than a machine. Still, make sure that your descriptions do not contain obvious ambiguities. Knuth [KnuI], p.6 provides an interesting comparison
+between cooking recipes and algorithms.
+   - ANSWER :: Detailed recipe steps written clearly, using no approximations or ambiguities.
+
+** Question 5
+   - PROMPT ::Design an algorithm for computing √n for any positive integer n. Besides assignment and comparison, your algorithm may only use the four
+basic arithmetical operations. 
+   - HINT   :: There is a quite straightforward algorithm for this problem based on the
+definition of √n.
+   - ANSWER :: Here is a straightforward algorithm:
+     1. Start with an initial guess x = n/2.
+     2. Repeat until convergence:
+        - Update x = (x + n/x) / 2.
+     3. Return x as the approximate square root.
+This algorithm is derived from Newton’s method.
+
+** Question 6
+   - PROMPT ::  Find gcd(31415, 14142) by applying Euclid’s algorithm.
+   - HINT   :: Just follow Euclid’s algorithm as described in the text.
+   - ANSWER :: gcd(31415, 14142) = gcd(14142, 3131) = gcd(3131, 1618) =
+gcd(1618, 1513) = gcd(1513, 105) = gcd(105, 43) = gcd(43, 19) = gcd(19, 5) = gcd(5, 4) = gcd(4, 1) = gcd(1, 0) = 1.
+
+** Question 7
+   - PROMPT :: Estimate how many times faster it will be to find gcd(31415, 14142)
+by Euclid’s algorithm compared with the algorithm based on checking
+consecutive integers from min{m, n} down to gcd(m, n).
+   - HINT   :: Compare the number of divisions made by the two algorithms.
+   - ANSWER :: Euclid’s algorithm requires 11 divisions. The consecutive integer checking algorithm requires up to 2 * 14142 divisions. Thus, Euclid’s algorithm is approximately 2572 times faster (14142/11).
+
+** Question 8
+   - PROMPT :: Prove the equality gcd(m, n) = gcd(n, m mod n) for every pair of positive
+integers m and n.
+   - HINT   :: Prove that if d divides both m and n (i.e., m = sd and n = td for some
+positive integers s and t), then it also divides both n and r = m mod n
+and vice versa. Use the formula m = qn+r (0 ≤ r<n) and the fact that
+if d divides two integers u and v, it also divides u + v and u − v. (Why?)
+   - ANSWER :: If d divides m and n, then m = qn + r implies that r = m - qn is also divisible by d. Conversely, if d divides n and r, then it divides m = qn + r. This establishes gcd(m, n) = gcd(n, m mod n).
+
+** Question 9
+   - PROMPT :: What does Euclid’s algorithm do for a pair of numbers in which the first
+number is smaller than the second one? What is the largest number of
+times this can happen during the algorithm’s execution on such an input?
+   - HINT   :: Perform one iteration of the algorithm for two arbitrarily chosen integers
+m < n.
+   - ANSWER :: For m < n, Euclid’s algorithm swaps the numbers so that gcd(m, n) = gcd(n, m). This swap can only happen once during the algorithm’s execution.
+
+** Question 10
+   - PROMPT :: What is the smallest number of divisions made by Euclid’s algorithm
+among all inputs 1 ≤ m, n ≤ 10?
+   - HINT   :: The answer to part (a) can be given immediately; the answer to part
+(b) can be given by checking the algorithm’s performance on all pairs
+1 <m<n ≤ 10.
+   - ANSWER :: The smallest number of divisions is 1, occurring when m is a multiple of n (e.g., gcd(4, 2)).
+
+** Question 11
+   - PROMPT :: Euclid’s algorithm, as presented in Euclid’s treatise, uses subtractions
+rather than integer divisions. Write a pseudocode for this version of
+Euclid’s algorithm.
+   - HINT   :: Use the equality:
+gcd(m, n) = gcd(m − n, n) for m ≥ n > 0.
+   - ANSWER :: Here is a nonrecursive version:
+     Algorithm Euclid2 (m, n)
+     //Computes gcd(m, n) by Euclid’s algorithm based on subtractions
+     //Input: Two nonnegative integers m and n not both equal to 0
+     //Output: The greatest common divisor of m and n
+     while n ≠ 0 do
+         if m < n swap(m, n)
+         m ← m − n
+     return m
+
+** Question 12
+   - PROMPT :: Euclid’s game (see [Bog]) starts with two unequal positive numbers
+on the board. Two players move in turn. On each move, a player has
+to write on the board a positive number equal to the difference of two
+numbers already on the board; this number must be new, i.e., different
+from all the numbers already on the board. The player who cannot move
+loses the game. Should you choose to move first or second in this game?
+   - HINT   :: The key is to figure out the total number of distinct integers that can be
+written on the board, starting with an initial pair m, n where m>n ≥ 1.
+You should exploit a connection of this question to the question of part
+(a). Considering small examples, especially those with n = 1 and n = 2,
+should help, too.
+   - ANSWER ::b. It is not too difficult to prove that the integers that can be written on
+the board are the integers generated by the subtraction version of Euclid's
+algorithm and only them. Although the order in which they appear on
+the board may vary, their total number always stays the same: It is equal
+to m/ gcd(m, n), where m is the maximum of the initial numbers, which
+includes two integers of the initial pair. Hence, the total number of
+possible moves is m/ gcd(m, n)−2. Consequently, if m/ gcd(m, n) is odd,
+one should choose to go first; if it is even, one should choose to go second.
+ 
+
+** Question 13
+   - PROMPT :: The extended Euclid's algorithm determines not only the greatest
+common divisor d of two positive integers m and n but also integers (not
+necessarily positive) x and y, such that mx + ny = d.
+   - HINT   :: Consider how to modify the basic Euclid's algorithm to keep track of coefficients x and y at each step. Think about how the coefficients change during each division step.
+   - ANSWER :: The extended algorithm maintains additional variables to track coefficients:
+     1. Initialize: x₁=1, y₁=0, x₂=0, y₂=1
+     2. While n≠0:
+        - q = ⌊m/n⌋
+        - r = m - qn
+        - x = x₁ - qx₂
+        - y = y₁ - qy₂
+        - m = n, n = r
+        - x₁ = x₂, x₂ = x
+        - y₁ = y₂, y₂ = y
+     3. Return (d=m, x=x₁, y=y₁)
+
+** Question 14
+   - PROMPT :: Look up a description of the extended Euclid’s algorithm (see, e.g.,
+[KnuI], p. 13) and implement it in the language of your choice.
+   - HINT   ::  Of course, for some coefficients, the equation will have no solutions.
+   - ANSWER :: n/a
+
+** Question 15
+   - PROMPT :: Modify your program for finding integer solutions to the Diophantine equation ax + by = c with any set of integer coefficients a, b, and
+c.
+   - HINT   ::  Of course, for some coefficients, the equation will have no solutions.
+   - ANSWER :: n/a
+
+** Question 16
+   - PROMPT :: Locker doors There are n lockers in a hallway numbered sequentially
+from 1 to n. Initially, all the locker doors are closed. You make n passes
+by the lockers, each time starting with locker #1. On the ith pass, i =
+1, 2, ..., n, you toggle the door of every ith locker: if the door is closed,
+you open it, if it is open, you close it. For example, after the first pass
+every door is open; on the second pass you only toggle the even-numbered
+lockers (#2, #4, ...) so that after the second pass the even doors are
+closed and the odd ones are opened; the third time through you close the
+door of locker #3 (opened from the first pass), open the door of locker
+#6 (closed from the second pass), and so on. After the last pass, which
+locker doors are open and which are closed? How many of them are open?
+   - HINT   :: Tracing the algorithm by hand for, say, n = 10 and studying its outcome
+should help answering both questions.
+   - ANSWER ::  Since all the doors are initially closed, a door will be open after the last
+pass if and only if it is toggled an odd number of times. Door i (1 ≤ i ≤ n)
+is toggled on pass j (1 ≤ j ≤ n) if and only if j divides i. Hence, the total
+number of times door i is toggled is equal to the number of its divisors.
+Note that if j divides i, i.e. i = jk, then k divides i too. Hence all the
+divisors of i can be paired (e.g., for i = 12, such pairs are 1 and 12, 2
+and 6, 3 and 4) unless i is a perfect square (e.g., for i = 16, 4 does not
+have another divisor to be matched with). This implies that i has an
+odd number of divisors if and only if it is a perfect square, i.e., i = j2.
+Hence doors that are in the positions that are perfect squares and only
+such doors will be open after the last pass. The total number of such
+positions not exceeding n is equal to 
+√n: these numbers are the squares
+of the positive integers between 1 and 
+√n inclusively.
+
+
+
+
+
+** Question 17
+   - PROMPT :: Old World puzzle A peasant finds himself on a riverbank with a wolf,
+a goat, and a head of cabbage. He needs to transport all three to the
+other side of the river in his boat. However, the boat has room for only
+the peasant himself and one other item (either the wolf, the goat, or the
+cabbage). In his absence, the wolf would eat the goat, and the goat would
+eat the cabbage. Solve this problem for the peasant or prove it has no
+solution. (Note: The peasant is a vegetarian but does not like cabbage
+and hence can eat neither the goat nor the cabbage to help him solve the
+problem. And it goes without saying that the wolf is a protected species.)
+   - HINT   :: Try breaking down the problem into steps. Consider what combinations of items can be safely left alone together. Draw a state diagram showing valid moves.
+   - ANSWER :: Solution:
+     1. Take goat across (wolf and cabbage safe)
+     2. Return empty
+     3. Take cabbage across
+     4. Return with goat
+     5. Take wolf across (cabbage safe)
+     6. Return empty
+     7. Take goat across
+     All items are now safely across.
+
+** Question 18
+   - PROMPT :: New World puzzle There are four people who want to cross a bridge; they
+all begin on the same side. You have 17 minutes to get them all across to
+the other side. It is night, and they have one flashlight. A maximum of two
+people can cross the bridge at one time. Any party that crosses, either one
+or two people, must have the flashlight with them. The flashlight must be
+walked back and forth; it cannot be thrown, for example. Person 1 takes
+1 minute to cross the bridge, person 2 takes 2 minutes, person 3 takes 5
+minutes, and person 4 takes 10 minutes. A pair must walk together at the
+rate of the slower person's pace. For example, if person 1 and person 4
+walk across first, 10 minutes have elapsed when they get to the other side
+of the bridge. If person 4 returns the flashlight, a total of 20 minutes have
+passed and you have failed the mission. (Note: According to a rumor on
+the Internet, interviewers at a well-known software company located near
+Seattle have given this problem to interviewees.)
+   - HINT   :: Consider who should cross together to minimize time. The fastest person (1 min) should be used to ferry the flashlight back. Try working backwards from the time limit.
+   - ANSWER :: Solution (17 minutes):
+     1. People 1 & 2 cross (2 min)
+     2. Person 1 returns (1 min)
+     3. People 3 & 4 cross (10 min)
+     4. Person 2 returns (2 min)
+     5. People 1 & 2 cross (2 min)
+     Total: 17 minutes
+
+** Question 19
+   - PROMPT :: Which of the following formulas can be considered an algorithm for computing the area of a triangle whose side lengths are given positive numbers
+a, b, and c?
+a. S = p(p − a)(p − b)(p − c), where p = (a + b + c)/2
+b. S = 1
+2 bc sin A, where A is the angle between sides b and c
+c. S = 1
+2 aha, where ha is the height to base a
+   - HINT   :: Consider what inputs each formula requires. An algorithm should work with just the given inputs (a, b, c) without needing additional information.
+   - ANSWER :: Only formula (a) can be considered an algorithm since it uses only the given side lengths. Formula (b) requires angle A which is not given. Formula (c) requires height ha which is not given.
+
+** Question 20
+   - PROMPT :: Write a pseudocode for an algorithm for finding real roots of equation
+ax2 + bx + c = 0 for arbitrary real coefficients a, b, and c. (You may
+assume the availability of the square root function sqrt(x).)
+   - HINT   :: Remember the quadratic formula: x = (-b ± √(b² - 4ac)) / (2a). Consider special cases like a=0 or when discriminant is negative.
+   - ANSWER :: Algorithm QuadraticRoots(a, b, c)
+     if a = 0 then
+         if b = 0 then return "no solution" 
+         else return -c/b
+     discriminant ← b² - 4ac
+     if discriminant < 0 then return "no real roots"
+     if discriminant = 0 then return -b/(2a)
+     x1 ← (-b + sqrt(discriminant))/(2a)
+     x2 ← (-b - sqrt(discriminant))/(2a)
+     return x1, x2
+
+** Question 21
+   - PROMPT ::  Describe the standard algorithm for finding the binary representation of
+a positive decimal integer
+a. in English.
+b. in a pseudocode.
+   - HINT   :: Think about how division by 2 and remainders relate to binary representation. The remainders in reverse order give the binary digits.
+   - ANSWER :: a. English description:
+     - Repeatedly divide the number by 2
+     - Keep track of remainders (0 or 1)
+     - Reverse the sequence of remainders
+     
+     b. Pseudocode:
+     Algorithm DecimalToBinary(n)
+     //Input: Positive decimal integer n
+     //Output: Binary representation as string
+     result ← empty string
+     while n > 0 do
+         remainder ← n mod 2
+         prepend remainder to result
+         n ← n div 2
+     return result
+
+** Question 22
+   - PROMPT ::  Describe the algorithm used by your favorite ATM machine in dispensing
+cash. (You may give your description in either English or a pseudocode,
+whichever you find more convenient.)
+   - HINT   :: Consider how to minimize the number of bills dispensed while meeting the requested amount. Think about different bill denominations.
+   - ANSWER :: Algorithm ATMDispense(amount)
+     //Input: Amount to withdraw
+     //Available bills: $100, $50, $20, $10, $5
+     remaining ← amount
+     while remaining > 0 do
+         if remaining ≥ 100 then
+             dispense $100 bill
+             remaining ← remaining - 100
+         else if remaining ≥ 50 then
+             dispense $50 bill
+             remaining ← remaining - 50
+         else if remaining ≥ 20 then
+             dispense $20 bill
+             remaining ← remaining - 20
+         else if remaining ≥ 10 then
+             dispense $10 bill
+             remaining ← remaining - 10
+         else
+             dispense $5 bill
+             remaining ← remaining - 5
+     return success
+
+** Question 23
+   - PROMPT :: a. Can the problem of computing the number π be solved exactly?
+b. How many instances does this problem have?
+c. Look up an algorithm for this problem on the World Wide Web
+   - HINT   :: Consider that π is an irrational number. Think about different methods of approximating π (geometric, series, Monte Carlo).
+   - ANSWER :: 
+     a. No, π cannot be computed exactly as it is an irrational number with infinite decimal places
+     b. One instance - π is a mathematical constant
+     c. Common algorithms:
+        - Leibniz formula: π/4 = 1 - 1/3 + 1/5 - 1/7 + ...
+        - Monte Carlo method: Using random points in a square/circle
+        - Ramanujan's formula: Rapid convergence series
+        - Archimedes' method: Using inscribed/circumscribed polygons
+
+** Question 24
+   - PROMPT ::  Give an example of a problem other than computing the greatest common
+divisor for which you know more than one algorithm. Which of them is
+simpler? Which is more efficient?
+   - HINT   :: Consider sorting algorithms as a classic example. Compare their simplicity versus efficiency tradeoffs.
+   - ANSWER :: Example: Sorting an array
+     1. Bubble Sort:
+        - Simpler to implement
+        - O(n²) time complexity
+        - Less efficient
+     
+     2. Merge Sort:
+        - More complex implementation
+        - O(n log n) time complexity
+        - More efficient
+        
+     Bubble Sort is simpler but Merge Sort is more efficient.
+
+** Question 25
+   - PROMPT ::Consider the following algorithm for finding the distance between the two
+closest elements in an array of numbers.
+Algorithm MinDistance(A[0..n − 1])
+//Input: Array A[0..n − 1] of numbers
+//Output: Minimum distance between two of its elements
+dmin ← ∞
+for i ← 0 to n − 1 do
+for j ← 0 to n − 1 do
+if i = j and |A[i] − A[j]| < dmin
+dmin ← |A[i] − A[j]|
+return dmin
+Make as many improvements as you can in this algorithmic solution to
+the problem. (If you need to, you may change the algorithm altogether; if
+not, improve the implementation given.) 
+   - HINT   :: Look for redundant comparisons. Consider if sorting could help. Think about how to avoid comparing an element with itself.
+   - ANSWER :: Improved algorithm:
+     Algorithm BetterMinDistance(A[0..n-1])
+     //Input: Array A[0..n-1] of numbers
+     if n < 2 return ∞
+     Sort(A)  // O(n log n)
+     dmin ← ∞
+     for i ← 1 to n-1 do  // O(n)
+         if |A[i] - A[i-1]| < dmin
+             dmin ← |A[i] - A[i-1]|
+     return dmin
+     
+     Improvements:
+     1. Eliminated redundant comparisons
+     2. Avoided self-comparisons
+     3. Reduced complexity from O(n²) to O(n log n)
+
+** Question 26
+   - PROMPT ::  One of the most influential books on problem solving, titled How To Solve
+It [Pol57], was written by the Hungarian-American mathematician George
+Polya (1887—1985). Polya summarized his ideas in a four-point summary.
+Find this summary on the Web or, better yet, in his book, and compare
+it with the plan outlined in Section 1.2. What do they have in common?
+How are they different?
+   - HINT   :: Consider Polya's four steps: understand the problem, devise a plan, carry out the plan, and look back. Compare these with the steps in Section 1.2.
+   - ANSWER :: Comparison of approaches:
+     1. Common elements:
+        - Both emphasize understanding the problem first
+        - Both include planning/strategy phase
+        - Both include implementation/execution
+        - Both include verification/review
+     
+     2. Key differences:
+        - Polya's approach more general (for all problem types)
+        - Section 1.2 more specific to algorithmic problems
+        - Polya emphasizes "looking back" more strongly
+        - Section 1.2 focuses more on efficiency analysis
+
+** Question 27
+   - PROMPT :: Name the algorithms for the searching problem that you already know.
+Give a good succinct description of each algorithm in English. (If you
+know no such algorithms, use this opportunity to design one.)
+   - HINT   :: Consider both sequential and binary search algorithms, as well as any other search methods you may know. Think about their key characteristics and steps.
+   - ANSWER :: Common searching algorithms include:
+     1. Sequential (Linear) Search: Scan each element in sequence until target is found. Simple but O(n) time complexity.
+     2. Binary Search: For sorted arrays, repeatedly divide search interval in half. O(log n) time complexity.
+     3. Hash-based Search: Use hash function to directly access elements. Average O(1) time complexity.
+     4. Interpolation Search: Like binary search but estimates position based on values. Good for uniformly distributed data.
+
+** Question 28
+   - PROMPT :: Design a simple algorithm for the string-matching problem
+   - HINT   :: Start with the simplest possible approach. Consider how you would manually check if one string appears within another.
+   - ANSWER :: Here's a simple string-matching algorithm:
+     Algorithm StringMatch(text, pattern)
+     //Input: text string of length n, pattern string of length m
+     //Output: index of first match or -1 if not found
+     for i ← 0 to n-m do
+         match ← true
+         for j ← 0 to m-1 do
+             if text[i+j] ≠ pattern[j] then
+                 match ← false
+                 break
+         if match then return i
+     return -1
+
+** Question 29
+   - PROMPT ::  Consider the following problem: Design an algorithm to determine the
+best route for a subway passenger to take from one designated station to
+another in a well-developed subway system similar to those in such cities
+as Washington, D.C., and London, UK.
+a. The problem's statement is somewhat vague, which is typical of reallife problems. In particular, what reasonable criterion can be used for
+defining the "best" route?
+b. How would you model this problem by a graph?
+   - HINT   :: Consider different metrics for "best" route and how subway systems naturally map to graph structures.
+   - ANSWER :: 
+     a. Reasonable criteria for "best" route could include:
+        - Minimum total travel time
+        - Minimum number of transfers
+        - Minimum walking distance between transfers
+        - Combination of above factors weighted appropriately
+
+     b. Graph modeling:
+        - Vertices: Subway stations
+        - Edges: Direct connections between stations
+        - Edge weights: Travel time or distance
+        - Multiple edges: Different lines between same stations
+        - Additional vertices: Transfer points
+        - Result: Use shortest path algorithms
+
+** Question 30
+   - PROMPT ::  a. Rephrase the traveling salesman problem in combinatorial object terms.
+b. Rephrase the graph-coloring problem in combinatorial object terms.
+   - HINT   :: Think about how these problems can be expressed in terms of permutations and combinations of elements.
+   - ANSWER :: 
+     a. Traveling Salesman Problem:
+        - Find permutation of n cities
+        - Minimizes total distance
+        - Among all possible n! permutations
+        - Starting and ending at same city
+     
+     b. Graph Coloring Problem:
+        - Find assignment of k colors
+        - To n vertices
+        - No adjacent vertices same color
+        - Minimize number of colors k
+
+** Question 31
+   - PROMPT :: Design an algorithm for the following problem: Given a set of n points
+in the Cartesian plane, determine whether all of them lie on the same
+circumference.
+   - HINT   :: Consider the properties of points that lie on the same circle - they must be equidistant from the center point.
+   - ANSWER :: Algorithm CheckCircle(points[1..n]):
+     1. If n < 3: return true
+     2. Take first 3 non-collinear points
+     3. Find center (x,y) and radius r:
+        - Use circle equation (x-h)² + (y-k)² = r²
+        - Solve system of equations
+     4. For remaining points p:
+        - Check if distance(p, center) = r
+     5. Return true if all points match
+     Time complexity: O(n)
+
+** Question 32
+   - PROMPT :: Write a program that reads as its inputs the (x, y) coordinates of the
+endpoints of two line segments P1Q1 and P2Q2 and determines whether
+the segments have a common point.
+   - HINT   :: Consider using line intersection formulas and checking if intersection point lies within both segments.
+   - ANSWER :: Algorithm LineIntersection(P1, Q1, P2, Q2):
+     1. Check if lines intersect:
+        - Find orientation of triplets
+        - Use cross product method
+     2. If lines intersect:
+        - Compute intersection point
+        - Check if point lies on both segments
+     3. Check special cases:
+        - Collinear segments
+        - Overlapping segments
+     4. Return true if common point exists
+     Time complexity: O(1)
+
+** Question 33
+   - PROMPT :: Describe how one can implement each of the following operations on an
+array so that the time it takes does not depend on the array's size n.
+a. Delete the ith element of an array (1 ≤ i ≤ n).
+b. Delete the ith element of a sorted array (the remaining array has
+to stay sorted, of course).
+   - HINT   :: Consider using extra data structures or modifying the problem constraints to achieve constant time operations.
+   - ANSWER :: 
+     a. Unsorted array deletion in O(1):
+        - Move last element to position i
+        - Decrease array size
+        - Trade-off: Loses original order
+     
+     b. Sorted array deletion in O(1):
+        - Mark element as deleted (lazy deletion)
+        - Use boolean array for deleted status
+        - Trade-off: Extra space, periodic cleanup needed
+
+** Question 34
+   - PROMPT :: If you have to solve the searching problem for a list of n numbers, how
+can you take advantage of the fact that the list is known to be sorted?
+Give separate answers for
+a. lists represented as arrays.
+b. lists represented as linked lists
+   - HINT   :: Consider how sorted order enables binary search for arrays, but may not help as much for linked lists.
+   - ANSWER :: 
+     a. Arrays:
+        - Use binary search O(log n)
+        - Random access enables efficient division
+        - Much faster than sequential search O(n)
+     
+     b. Linked Lists:
+        - Cannot do binary search (no random access)
+        - Can still improve on basic sequential search:
+          * Stop when current > target
+          * Average case better than unsorted
+        - Still O(n) but with smaller constant
+
+** Question 35
+   - PROMPT :: a. Show the stack after each operation of the following sequence that
+starts with the empty stack:
+push(a), push(b), pop, push(c), push(d), pop
+b. Show the queue after each operation of the following sequence that
+starts with the empty queue:
+enqueue(a), enqueue(b), dequeue, enqueue(c), enqueue(d), dequeue
+   - HINT   :: Track each operation's effect on the data structure, remembering LIFO for stack and FIFO for queue.
+   - ANSWER :: 
+     a. Stack operations:
+        1. push(a): [a]
+        2. push(b): [a,b]
+        3. pop: [a]
+        4. push(c): [a,c]
+        5. push(d): [a,c,d]
+        6. pop: [a,c]
+     
+     b. Queue operations:
+        1. enqueue(a): [a]
+        2. enqueue(b): [a,b]
+        3. dequeue: [b]
+        4. enqueue(c): [b,c]
+        5. enqueue(d): [b,c,d]
+        6. dequeue: [c,d]
+** Question 36
+   - PROMPT :: a. Let A be the adjacency matrix of an undirected graph. Explain what
+property of the matrix indicates that
+i. the graph is complete.
+ii. the graph has a loop, i.e., an edge connecting a vertex to itself.
+iii. the graph has an isolated vertex, i.e., a vertex with no edges incident
+to it.
+b. Answer the same questions for the adjacency list representation.
+   - HINT   :: Consider what values appear in the matrix/lists for each graph property.
+   - ANSWER :: 
+     a. Adjacency Matrix properties:
+        i. Complete graph: All entries are 1 except diagonal
+        ii. Loop: Non-zero element on diagonal (A[i,i] = 1)
+        iii. Isolated vertex: Row/column i contains all zeros
+     
+     b. Adjacency List properties:
+        i. Complete graph: Each vertex list has n-1 entries
+        ii. Loop: Vertex appears in its own adjacency list
+        iii. Isolated vertex: Empty adjacency list for that vertex
+
+** Question 37
+   - PROMPT :: Give a detailed description of an algorithm for transforming a free tree
+into a tree rooted at a given vertex of the free tree.
+   - HINT   :: Consider using a graph traversal algorithm like BFS or DFS starting from the chosen root vertex.
+   - ANSWER :: Algorithm RootTree(tree, root):
+     1. Use BFS or DFS starting from root vertex
+     2. For each vertex visited:
+        - Set its parent as the vertex it was discovered from
+        - Add it to children list of its parent
+     3. Remove bidirectional edges from original tree
+     4. Replace with directed edges from parent to children
+     Time complexity: O(V + E) where V is vertices, E is edges
+
+** Question 38
+   - PROMPT :: Prove the inequalities that bracket the height of a binary tree with n
+vertices:
+log2 n ≤ h ≤ n − 1.
+   - HINT   :: Consider the minimum and maximum number of nodes possible for a given height. Use this to establish bounds.
+   - ANSWER :: Proof:
+     1. Lower bound (log2 n ≤ h):
+        - Each level i has at most 2^i nodes
+        - Total nodes n ≤ 2^(h+1) - 1
+        - Therefore n + 1 ≤ 2^(h+1)
+        - Taking log2: log2(n+1) - 1 ≤ h
+        - Thus log2 n ≤ h
+     
+     2. Upper bound (h ≤ n-1):
+        - Each level must have at least 1 node
+        - Height h means h+1 levels
+        - Therefore n ≥ h+1
+        - Thus h ≤ n-1
+
+** Question 39
+   - PROMPT :: Indicate how the ADT priority queue can be implemented as
+a. an (unsorted) array.
+b. a sorted array.
+c. a binary search tree.
+   - HINT   :: Consider the tradeoffs between insertion and deletion operations for each implementation.
+   - ANSWER :: 
+     a. Unsorted array implementation:
+        - Insert: O(1) - add to end
+        - DeleteMax: O(n) - scan for maximum
+        - Space: O(n)
+     
+     b. Sorted array implementation:
+        - Insert: O(n) - maintain sorted order
+        - DeleteMax: O(1) - remove from end
+        - Space: O(n)
+     
+     c. Binary search tree implementation:
+        - Insert: O(log n) average case
+        - DeleteMax: O(log n)
+        - Space: O(n)
+
+** Question 40
+   - PROMPT :: How would you implement a dictionary of a reasonably small size n if
+you knew that all its elements are distinct (e.g., names of 50 states of the
+United States)? Specify an implementation of each dictionary operation.
+   - HINT   :: Consider that with a small, fixed size, you can optimize for the most common operations.
+   - ANSWER :: For a small dictionary (n=50):
+     1. Use a simple array implementation
+     2. Operations:
+        - Search: Binary search O(log n)
+        - Insert: Maintain sorted order O(n)
+        - Delete: O(n)
+        - Space: O(n)
+     3. Justification:
+        - Small n makes linear operations acceptable
+        - Simple implementation reduces overhead
+        - Binary search still efficient for lookups
+
+** Question 41
+   - PROMPT :: For each of the following applications, indicate the most appropriate data
+structure:
+a. answering telephone calls in the order of their known priorities.
+b. sending backlog orders to customers in the order they have been received.
+c. implementing a calculator for computing simple arithmetical expressions.
+   - HINT   :: Match the requirements of each application with the properties of basic data structures.
+   - ANSWER :: 
+     a. Telephone calls by priority:
+        - Use: Priority Queue
+        - Reason: Efficiently handles varying priorities
+     
+     b. Backlog orders:
+        - Use: Queue (FIFO)
+        - Reason: First-come-first-served order
+     
+     c. Calculator expressions:
+        - Use: Stack
+        - Reason: Handles operator precedence and nested expressions
+
+** Question 42
+   - PROMPT :: Anagram checking Design an algorithm for checking whether two given
+words are anagrams, i.e., whether one word can be obtained by permuting the letters of the other. (For example, the words tea and eat are
+anagrams.)
+   - HINT   :: Consider how to compare two words regardless of letter order. Think about character frequency counting.
+   - ANSWER :: Algorithm CheckAnagram(word1, word2):
+     1. If lengths different, return false
+     2. Create array/map freq[26] initialized to 0
+     3. For each char c in word1:
+        - freq[c - 'a']++
+     4. For each char c in word2:
+        - freq[c - 'a']--
+     5. Check if all freq values are 0
+     Time complexity: O(n)
+     Space complexity: O(1)
+
+** Question 43
+   - PROMPT :: For each of the following algorithms, indicate (i) a natural size metric for
+its inputs; (ii) its basic operation; (iii) whether the basic operation count
+can be different for inputs of the same size:
+a. computing the sum of n numbers
+b. computing n!
+c. finding the largest element in a list of n numbers
+d. Euclid’s algorithm
+e. sieve of Eratosthenes
+f. pen-and-pencil algorithm for multiplying two n-digit decimal integers
+   - HINT   :: For each algorithm, consider what determines its workload and what operation is performed most frequently.
+   - ANSWER :: 
+     a. Sum of n numbers:
+        - Size metric: n (number of elements)
+        - Basic operation: addition
+        - Count always same for given size: Yes
+     
+     b. Computing n!:
+        - Size metric: n
+        - Basic operation: multiplication
+        - Count always same: Yes
+     
+     c. Finding largest element:
+        - Size metric: n
+        - Basic operation: comparison
+        - Count always same: Yes
+     
+     d. Euclid's algorithm:
+        - Size metric: number of digits in larger number
+        - Basic operation: division/remainder
+        - Count varies with input values: Yes
+     
+     e. Sieve of Eratosthenes:
+        - Size metric: n (upper bound)
+        - Basic operation: marking multiples
+        - Count always same: Yes
+     
+     f. Multiplication of n-digit integers:
+        - Size metric: n (digits)
+        - Basic operation: single-digit multiplication
+        - Count always same: Yes
+
+** Question 44
+   - PROMPT :: a. Consider the definition-based algorithm for adding two n-by-n matrices. What is its basic operation? How many times is it performed as
+a function of the matrix order n? As a function of the total number of
+elements in the input matrices?
+b. Answer the same questions for the definition-based algorithm for matrix
+multiplication.
+   - HINT   :: Consider the basic operations needed for matrix addition and multiplication based on their mathematical definitions.
+   - ANSWER :: 
+     a. Matrix Addition:
+        - Basic operation: Addition of corresponding elements
+        - Count: n² operations (one per matrix element)
+        - As function of total elements N = n²: N operations
+     
+     b. Matrix Multiplication:
+        - Basic operation: Multiplication of element pairs
+        - Count: n³ operations (n multiplications for each of n² elements)
+        - As function of total elements N = n²: N^(3/2) operations
+
+** Question 45
+   - PROMPT ::  Consider a variation of sequential search that scans a list to return the
+number of occurrences of a given search key in the list. Will its efficiency
+differ from the efficiency of classic sequential search?
+   - HINT   :: Consider how the need to continue searching after finding a match affects the algorithm.
+   - ANSWER :: 
+     - The efficiency will be different in the best case (same as classic)
+     - Must always scan entire list in worst and average cases
+     - Classic search can stop at first match
+     - Time complexity:
+       * Best case: O(1) - same as classic
+       * Worst case: O(n) - must scan entire list
+       * Average case: O(n) - must scan entire list
+
+** Question 46
+   - PROMPT :: a. Glove selection There are 22 gloves in a drawer: 5 pairs of red gloves,
+4 pairs of yellow, and 2 pairs of green. You select the gloves in the dark
+and can check them only after a selection has been made. What is the
+smallest number of gloves you need to select to have at least one matching
+pair in the best case? in the worst case? (after [Mos01], #18)
+b. Missing socks Imagine that after washing 5 distinct pairs of socks,
+you discover that two socks are missing. Of course, you would like to have
+the largest number of complete pairs remaining. Thus, you are left with
+4 complete pairs in the best-case scenario and with 3 complete pairs in
+the worst case. Assuming that the probability of disappearance for each
+of the 10 socks is the same, find the probability of the best-case scenario;
+the probability of the worst-case scenario; the number of pairs you should
+expect in the average case. (after [Mos01], #48) 
+   - HINT   :: Use probability theory and combinatorics to analyze the possible outcomes.
+   - ANSWER :: 
+     a. Glove selection:
+        - Best case: 2 gloves (same color)
+        - Worst case: 12 gloves (could get one of each color first)
+     
+     b. Missing socks:
+        - Best case probability: C(2,2) * C(8,0) / C(10,2) = 28/45
+        - Worst case probability: C(2,1) * C(8,1) / C(10,2) = 16/45
+        - Expected pairs: (4*28/45 + 3*16/45) = 3.62 pairs
+
+** Question 47
+   - PROMPT :: a. Prove formula (2.1) for the number of bits in the binary representation
+of a positive integer.
+b. What would be the analogous formula for the number of decimal digits?
+c. Explain why, within the accepted analysis framework, it does not matter whether we use binary or decimal digits in measuring n’s size.
+   - HINT   :: Consider the relationship between numbers and their binary/decimal representations.
+   - ANSWER :: 
+     a. Binary representation:
+        - For n > 0, ⌊log₂n⌋ + 1 bits needed
+        - Proof: 2^k ≤ n < 2^(k+1) where k = ⌊log₂n⌋
+     
+     b. Decimal representation:
+        - For n > 0, ⌊log₁₀n⌋ + 1 digits needed
+     
+     c. Both are logarithmic:
+        - log₂n = log₁₀n / log₁₀2
+        - Differ only by constant factor
+        - Same asymptotic complexity class
+
+** Question 48
+   - PROMPT ::  Suggest how any sorting algorithm can be augmented in a way to make
+the best-case count of its key comparisons equal to just n − 1 (n is a list’s
+size, of course). Do you think it would be a worthwhile addition to any
+sorting algorithm?
+   - HINT   :: Consider checking if the list is already sorted before proceeding with the full sort.
+   - ANSWER :: 
+     - Add initial pass to check if array is sorted
+     - Requires n-1 comparisons
+     - If sorted, stop; if not, proceed with normal sort
+     - Not worthwhile because:
+       * Adds overhead to already-sorted cases
+       * Most real data is not perfectly sorted
+       * Minimal benefit for random data
+
+** Question 49
+   - PROMPT ::  Gaussian elimination, the classic algorithm for solving systems of n linear
+equations in n unknowns, requires about 1
+3n3 multiplications, which is the
+algorithm’s basic operation.
+a. How much longer should you expect Gaussian elimination to work
+on a system of 1000 equations versus a system of 500 equations?
+b. You are considering buying a computer that is 1000 times faster than
+the one you currently have. By what factor will the faster computer increase the sizes of systems solvable in the same amount of time as on the
+old computer?
+   - HINT   :: Use the cubic relationship between problem size and operations.
+   - ANSWER :: 
+     a. Time comparison:
+        - T(1000)/T(500) = 1000³/500³ = 8
+        - Will take 8 times longer
+     
+     b. Size increase:
+        - New_size³/Old_size³ = 1000
+        - New_size = Old_size * ∛1000 ≈ 10
+        - Can solve problems ~10 times larger
+
+** Question 50
+   - PROMPT :: Indicate whether the first function of each of the following pairs has a
+smaller, same, or larger order of growth (to within a constant multiple)
+than the second function.
+a. n(n + 1) and 2000n² b. 100n² and 0.01n³
+c. log₂n and ln n d. log₂
+2 n and log₂ n2
+e. 2n−1 and 2n f. (n − 1)! and n!
+   - HINT   :: Compare the growth rates by taking limits or analyzing dominant terms.
+   - ANSWER :: 
+     a. n(n + 1) and 2000n²: Same order (both Θ(n²))
+     b. 100n² and 0.01n³: n² is smaller (n³ dominates)
+     c. log₂n and ln n: Same order (differ by constant)
+     d. log₂²n and log₂(n²): Same order (log₂(n²) = 2log₂n)
+     e. 2^(n-1) and 2^n: Same order (differ by constant factor)
+     f. (n-1)! and n!: Same order (differ by factor of n)
+
+** Question 51
+   - PROMPT :: Invention of chess According to a well-known legend, the game of chess
+was invented many centuries ago in northwestern India by a sage named
+Shashi. When he took his invention to his king, the king liked the game
+2
+so much that he offered the inventor any reward he wanted. Sashi asked
+for some grain to be obtained as follows: just a single grain of wheat was
+to be placed on the first square of the chess board, two on the second, four
+on the third, eight on the fourth, and so on, until all 64 squares had been
+filled. What would the ultimate result of this algorithm have been?
+   - HINT   :: Consider exponential growth: each square doubles the previous number of grains.
+   - ANSWER :: 
+     - Each square gets 2^(k-1) grains where k is square number (1 to 64)
+     - Total grains = 2⁰ + 2¹ + 2² + ... + 2⁶³
+     - Sum = 2⁶⁴ - 1
+     - This equals 18,446,744,073,709,551,615 grains
+     - Far more wheat than has ever existed on Earth
+     - The king could not fulfill this request
+
+** Question 52
+   - PROMPT :: Use the most appropriate notation among O, Θ, and Ω to indicate the
+time efficiency class of sequential search (see Section 2.1)
+a. in the worst case.
+b. in the best case.
+c. in the average case
+   - HINT   :: Consider the best, worst, and average cases separately and their respective time complexities.
+   - ANSWER :: 
+     a. Worst case: Θ(n) - must scan entire array
+     b. Best case: O(1) - first element is target
+     c. Average case: Θ(n) - expected to scan half array
+
+** Question 53
+   - PROMPT ::  Use the informal definitions of O, Θ, and Ω to determine whether the following assertions are true or false.
+a. n(n + 1)/2 ∈ O(n3) b. n(n + 1)/2 ∈ O(n2)
+c. n(n + 1)/2 ∈ Θ(n3) d. n(n + 1)/2 ∈ Ω(n)
+   - HINT   :: Compare growth rates and apply definitions of asymptotic notations.
+   - ANSWER :: 
+     a. n(n+1)/2 ∈ O(n³): True (quadratic is bounded by cubic)
+     b. n(n+1)/2 ∈ O(n²): True (is quadratic)
+     c. n(n+1)/2 ∈ Θ(n³): False (not cubic growth)
+     d. n(n+1)/2 ∈ Ω(n): True (grows faster than linear)
+
+** Question 54
+   - PROMPT :: For each of the following functions, indicate the class Θ(g(n)) the function
+belongs to. (Use the simplest g(n) possible in your answers.) Prove your
+assertions.
+a. (n2 + 1)10 b. √
+10n2 + 7n + 3
+c. 2n lg(n + 2)2 + (n + 2)2 lg n
+2 d. 2n+1 + 3n−1
+e. log2 n
+   - HINT   :: Focus on the dominant terms and simplify expressions.
+   - ANSWER :: 
+     a. (n² + 1)¹⁰ ∈ Θ(n²⁰)
+     b. √(10n² + 7n + 3) ∈ Θ(n)
+     c. 2n lg(n + 2)² + (n + 2)² lg n² ∈ Θ(n log² n)
+     d. 2^(n+1) + 3^(n-1) ∈ Θ(3^n)
+     e. log₂ n ∈ Θ(log n)
+
+** Question 55
+   - PROMPT ::  a. Table 2.1 contains values of several functions that often arise in analysis
+of algorithms. These values certainly suggest that the functions
+log n, n, n log n, n2, n3, 2n, n!
+are listed in increasing order of their order of growth. Do these values
+prove this fact with mathematical certainty?
+b. Prove that the functions are indeed listed in increasing order of their
+order of growth.
+   - HINT   :: Consider that numerical examples alone don't constitute a proof. Think about using limits and mathematical induction to prove the relationships.
+   - ANSWER :: 
+     a. No, values alone don't prove order with certainty. We need formal mathematical proofs.
+     
+     b. Proof using limits:
+        1. lim(n→∞) log n/n = 0, so log n < n
+        2. lim(n→∞) n/(n log n) = 0, so n < n log n
+        3. lim(n→∞) (n log n)/n² = 0, so n log n < n²
+        4. lim(n→∞) n²/n³ = 0, so n² < n³
+        5. lim(n→∞) n³/2^n = 0, so n³ < 2^n
+        6. lim(n→∞) 2^n/n! = 0, so 2^n < n!
+
+** Question 56
+   - PROMPT :: Order the following functions according to their order of growth (from the
+lowest to the highest):
+(n−2)!, 5 lg(n+ 100)10, 22n, 0.001n4 + 3n3 + 1, ln2
+n, √3 n, 3n
+   - HINT   :: Compare functions pairwise using limits. Remember that constants and lower-order terms don't affect asymptotic growth.
+   - ANSWER :: Ordered from lowest to highest growth:
+     1. 5 lg(n + 100)¹⁰ ∈ Θ(log¹⁰ n)
+     2. ln² n ∈ Θ(log² n)
+     3. √3 n ∈ Θ(n^(1/2))
+     4. 0.001n⁴ + 3n³ + 1 ∈ Θ(n⁴)
+     5. 2^(2n) ∈ Θ(2^n)
+     6. 3^n ∈ Θ(3^n)
+     7. (n-2)! ∈ Θ(n!)
+
+** Question 57
+   - PROMPT ::a. Prove that every polynomial of degree k, p(n) = aknk + ak−1nk−1 +
+... + a0, with ak > 0 belongs to Θ(nk).
+b. Prove that exponential functions an have different orders of growth
+for different values of base a > 0. 
+   - HINT   :: For (a), consider bounds using the highest-degree term. For (b), use limits to compare exponential functions with different bases.
+   - ANSWER :: 
+     a. Proof for polynomials:
+        1. Upper bound: |p(n)| ≤ |ak|n^k + |ak-1|n^(k-1) + ... + |a0|
+                       ≤ (|ak| + |ak-1| + ... + |a0|)n^k = c₁n^k
+        2. Lower bound: For large n, |p(n)| ≥ |ak|n^k/2 = c₂n^k
+        Therefore, p(n) ∈ Θ(n^k)
+     
+     b. Proof for exponentials:
+        For a₁ > a₂ > 0:
+        lim(n→∞) (a₂^n)/(a₁^n) = lim(n→∞) (a₂/a₁)^n = 0
+        Therefore, a₁^n grows faster than a₂^n
+
+** Question 58
+   - PROMPT :: Prove (by using the definitions of the notations involved) or disprove (by
+giving a specific counterexample) the following assertions.
+a. If t(n) ∈ O(g(n)), then g(n) ∈ Ω(t(n)).
+b. Θ(αg(n)) = Θ(g(n)), where α > 0.
+c. Θ(g(n)) = O(g(n)) ∩ Ω(g(n)).
+d. For any two nonnegative functions t(n) and g(n) defined on the set of
+nonnegative integers, either t(n) ∈ O(g(n)), or t(n) ∈ Ω(g(n)), or both.
+   - HINT   :: Use the formal definitions of O, Ω, and Θ notations. For counterexamples, try simple functions that exhibit the desired properties.
+   - ANSWER :: 
+     a. False. Counterexample: t(n) = n, g(n) = n². Here n ∈ O(n²) but n² ∉ Ω(n).
+     
+     b. True. Since α is constant, multiplying by it doesn't change asymptotic behavior.
+     
+     c. True. By definition, f(n) ∈ Θ(g(n)) means f(n) is both O(g(n)) and Ω(g(n)).
+     
+     d. False. Counterexample: t(n) = n for n even, n² for n odd;
+              g(n) = n² for n even, n for n odd.
+
+** Question 59
+   - PROMPT :: Prove the section's theorem for
+a. Ω notation.
+b. Θ notation.
+   - HINT   :: Use the basic definitions and properties of limits. Consider how Ω relates to O, and how Θ combines both.
+   - ANSWER :: 
+     a. Ω notation proof:
+        f(n) ∈ Ω(g(n)) iff g(n) ∈ O(f(n))
+        iff ∃c,n₀ > 0: g(n) ≤ cf(n) ∀n ≥ n₀
+        iff ∃c,n₀ > 0: f(n) ≥ (1/c)g(n) ∀n ≥ n₀
+     
+     b. Θ notation proof:
+        f(n) ∈ Θ(g(n)) iff f(n) ∈ O(g(n)) and f(n) ∈ Ω(g(n))
+        iff ∃c₁,c₂,n₀ > 0: c₁g(n) ≤ f(n) ≤ c₂g(n) ∀n ≥ n₀
+
+** Question 60
+   - PROMPT :: We mentioned in this section that one can check whether all elements of an
+array are distinct by a two-part algorithm based on the array's presorting.
+a. If the presorting is done by an algorithm with the time efficiency in
+Θ(n log n), what will be the time efficiency class of the entire algorithm?
+b. If the sorting algorithm used for presorting needs an extra array of
+size n, what will be the space efficiency class of the entire algorithm?
+   - HINT   :: Consider both phases: sorting and checking consecutive elements. For space, consider both the input array and any auxiliary space needed.
+   - ANSWER :: 
+     a. Time efficiency: Θ(n log n)
+        - Sorting phase: Θ(n log n)
+        - Checking phase: Θ(n)
+        - Overall: Θ(n log n) dominates
+     
+     b. Space efficiency: Θ(n)
+        - Input array: n elements
+        - Extra array: n elements
+        - Total space: Θ(n)
+
+** Question 61
+   - PROMPT ::  Door in a wall You are facing a wall that stretches infinitely in both
+directions. There is a door in the wall, but you know neither how far
+away nor in which direction. You can see the door only when you are
+right next to it. Design an algorithm that enables you to reach the door
+by walking at most O(n) steps where n is the (unknown to you) number
+of steps between your initial position and the door. [Par95], #652
+   - HINT   :: Consider an exponential search pattern. Think about alternating directions with increasing distances.
+   - ANSWER :: Algorithm FindDoor:
+     1. Start at position 0
+     2. For i = 0,1,2,3,...
+        - Walk 2^i steps right
+        - If door found, stop
+        - Return to start
+        - Walk 2^i steps left
+        - If door found, stop
+        - Return to start
+     
+     Analysis:
+     - If door is n steps away
+     - Algorithm finds it in ≤ 4n steps
+     - Therefore O(n) complexity
+
+
+
+
+
+** Question 62
+   - PROMPT :: Compute the following sums.
+a. 1+3+5+7+ ... + 999  
+b. 2 + 4 + 8 + 16 + ... + 1024  
+c. n+1  
+i=3 1  
+d. n+1  
+i=3 i  
+e. n−1  
+i=0 i(i + 1)  
+f. n  
+j=1 3j+1  
+g. n  
+i=1  
+n  
+j=1 ij  
+h. n−1  
+i=0 1/i(i + 1)  
+   - HINT   :: For each part, identify the type of sequence (arithmetic, geometric, summation formulas, etc.) and use the appropriate formula to compute the result.  
+   - ANSWER ::  
+a. The sequence is an arithmetic progression with the first term \( a = 1 \), common difference \( d = 2 \), and the last term \( l = 999 \). Using the formula for the sum of an arithmetic sequence:  
+\[ S = \frac{n}{2} (a + l) \], where \( n \) is the number of terms:  
+\[ n = \frac{l - a}{d} + 1 = \frac{999 - 1}{2} + 1 = 500 \]  
+\[ S = \frac{500}{2} (1 + 999) = 250 \times 1000 = 250,000 \]  
+
+b. The sequence is a geometric progression with \( a = 2 \), \( r = 2 \), and \( l = 1024 \). Using the sum formula for a geometric progression:  
+\[ S = a \frac{r^n - 1}{r - 1} \], where \( n \) is the number of terms:  
+\[ n = \log_2(1024) = 10 \]  
+\[ S = 2 \frac{2^{10} - 1}{2 - 1} = 2 \times (1024 - 1) = 2 \times 1023 = 2046 \]  
+
+c. \(\sum_{i=3}^{n+1} 1 = (n + 1) - 3 + 1 = n - 2 \).  
+
+d. \(\sum_{i=3}^{n+1} i = \frac{(n+1)(n+2)}{2} - \frac{(3)(2)}{2} = \frac{(n+1)(n+2) - 6}{2} \).  
+
+e. \(\sum_{i=0}^{n-1} i(i+1) = \sum_{i=0}^{n-1} (i^2 + i) = \sum_{i=0}^{n-1} i^2 + \sum_{i=0}^{n-1} i = \frac{(n-1)n(2n-1)}{6} + \frac{(n-1)n}{2} = \frac{(n-1)n(2n+2)}{6} = \frac{(n-1)n(n+1)}{3} \).  
+
+f. \(\sum_{j=1}^{n} (3j + 1) = 3\sum_{j=1}^n j + \sum_{j=1}^n 1 = 3 \frac{n(n+1)}{2} + n = \frac{3n(n+1)}{2} + n = \frac{3n^2 + 3n + 2n}{2} = \frac{3n^2 + 5n}{2} \).  
+
+g. \(\sum_{i=1}^{n} \sum_{j=1}^{n} ij = \left(\sum_{i=1}^n i\right) \left(\sum_{j=1}^n j\right) = \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^2(n+1)^2}{4} \).  
+
+h. \(\sum_{i=0}^{n-1} \frac{1}{i(i+1)} = \sum_{i=0}^{n-1} \left(\frac{1}{i} - \frac{1}{i+1}\right) = 1 - \frac{1}{n} = \frac{n-1}{n} \).  
+
+
+** Question 63
+   - PROMPT :: Find the order of growth of the following sums.
+a. n−1
+i=0 (i
+2+1)2 b. n−1
+i=2 lg i
+2
+c. n
+i=1(i + 1)2i−1 d. n−1
+i=0
+i−1
+j=0(i + j)
+Use the Θ(g(n)) notation with the simplest function g(n) possible.
+   - HINT   :: Break down each sum and identify the dominant terms. For nested sums, work from inside out.
+   - ANSWER :: 
+a. Θ(n⁵) - The highest power term (i⁴) dominates when expanded
+b. Θ(n log² n) - Sum of logarithmic terms
+c. Θ(2ⁿ) - Exponential growth dominates
+d. Θ(n³) - Nested sum with cubic growth
+
+** Question 64
+   - PROMPT :: The sample variance of n measurements x1, x2, ..., xn can be computed as
+n
+i=1(xi − x¯)2
+n − 1
+where x¯ =
+n
+i=1 xi
+n
+or
+n
+i=1 x2
+i − (
+n
+i=1 xi)2/n
+n − 1 .
+Find and compare the number of divisions, multiplications, and additions/subtractions (additions and subtractions are usually bunched together) that are required for computing the variance according to each of
+these formulas.
+   - HINT   :: Count operations step by step. For the first formula, consider computing mean first, then deviations, then squares. For the second formula, track operations for sums and squares separately.
+   - ANSWER :: 
+First formula:
+- Divisions: 2 (mean and final division)
+- Multiplications: n (squaring deviations)
+- Additions/Subtractions: 2n-1 (n-1 for mean sum, n for deviations)
+
+Second formula:
+- Divisions: 2 (division by n and n-1)
+- Multiplications: n+1 (n squares plus square of sum)
+- Additions/Subtractions: 2n-1 (n-1 for each sum)
+
+The second formula is generally more efficient.
+
+** Question 65
+   - PROMPT :: Consider the following algorithm.
+Algorithm Mystery( n)
+//Input: A nonnegative integer n
+S ← 0
+for i ← 1 to n do
+S ← S + i ∗ i
+return S
+a. What does this algorithm compute?
+b. What is its basic operation?
+c. How many times is the basic operation executed?
+d. What is the efficiency class of this algorithm?
+e. Suggest an improvement or a better algorithm altogether and indicate its efficiency class. If you cannot do it, try to prove that, in fact, it
+cannot be done.
+   - HINT   :: Look for a pattern in the sum. Consider if there's a closed formula for sum of squares.
+   - ANSWER :: 
+a. Computes sum of squares from 1 to n: 1² + 2² + ... + n²
+b. Basic operation is multiplication (i * i)
+c. Executed n times
+d. Θ(n) time complexity
+e. Improvement: Use the closed formula for sum of squares:
+   n(n+1)(2n+1)/6
+   This gives Θ(1) time complexity
+
+** Question 66
+   - PROMPT :: Consider the following algorithm.
+Algorithm Secret(A[0..n − 1])
+//Input: An array A[0..n − 1] of n real numbers
+minval ← A[0]; maxval ← A[0]
+for i ← 1 to n − 1 do
+if A[i] < minval
+minval ← A[i]
+if A[i] > maxval
+maxval ← A[i]
+return maxval − minval
+Answer questions a—e of Problem 4 about this algorithm.
+   - HINT   :: 
+   - ANSWER :: 
+     a. Computes the range (max - min) of the array.
+     b. Basic operation: Comparison.
+     c. Executed 2(n-1) times.
+     d. Efficiency class: Θ(n).
+     e. Optimal as is; cannot be improved beyond linear time.
+
+** Question 67
+   - PROMPT :: Consider the following algorithm.
+Algorithm Enigma(A[0..n − 1, 0..n − 1])
+//Input: A matrix A[0..n − 1, 0..n − 1] of real numbers
+for i ← 0 to n − 2 do
+for j ← i + 1 to n − 1 do
+if A[i, j] = A[j, i]
+return false
+return true
+Answer the questions a—e of Problem 4 about this algorithm.
+   - HINT   :: 
+   - ANSWER :: a. The algorithm returns "true" if its input matrix is symmetric and
+"false" if it is not.
+b. Comparison of two matrix elements.
+c. Cworst(n) = n−2
+i=0
+n−1
+j=i+1
+1 = n−2
+i=0
+[(n − 1) − (i + 1) + 1)
+= n−2
+i=0
+(n − 1 − i)=(n − 1) + (n − 2) + ... +1= (n−1)n
+2 .
+d. Quadratic: Cworst(n) ∈ Θ(n2) (or C(n) ∈ O(n2)).
+e. The algorithm is optimal because any algorithm that solves this problem must, in the worst case, compare (n − 1)n/2 elements in the uppertriangular part of the matrix with their symmetric counterparts in the
+lower-triangular part, which is all this algorithm does.
+
+** Question 68
+   - PROMPT ::  Improve the implementation of the matrix multiplication algorithm (see
+Example 3) by reducing the number of additions made by the algorithm.
+What effect will this change have on the algorithm's efficiency?
+   - HINT   :: Computing a sum of n numbers can be done with n − 1 additions. How
+many does the algorithm make in computing each element of the product
+matrix?
+   - ANSWER :: Replace the body of the j loop by the following fragment:
+C[i, j] ← A[i, 0] ∗ B[0, j]
+for k ← 1 to n − 1 do
+C[i, j] ← C[i, j] + A[i, k] ∗ B[k, j]
+This will decrease the number of additions from n3 to n3 − n2, but the
+number of multiplications will still be n3. The algorithm's efficiency class
+will remain cubic.
+
+
+
+
+
+
+
+
+
+
+
+
+** Question 69
+   - PROMPT :: Solve the following recurrence relations.
+a. x(n) = x(n − 1) + 5 for n > 1, x(1) = 0
+b. x(n)=3x(n − 1) for n > 1, x(1) = 4
+c. x(n) = x(n − 1) + n for n > 0, x(0) = 0
+d. x(n) = x(n/2) + n for n > 1, x(1) = 1 (solve for n = 2k)
+e. x(n) = x(n/3) + 1 for n > 1, x(1) = 1 (solve for n = 3k)
+   - HINT   ::Each of these recurrences can be solved by the method of backward substitutions. 
+   - ANSWER ::  a. x(n) = x(n − 1) + 5 for n > 1, x(1) = 0
+x(n) = x(n − 1) + 5
+= [x(n − 2) + 5] + 5 = x(n − 2) + 5 · 2
+= [x(n − 3) + 5] + 5 · 2 = x(n − 3) + 5 · 3
+= ...
+= x(n − i)+5 · i
+= ...
+= x(1) + 5 · (n − 1) = 5(n − 1).
+Note: The solution can also be obtained by using the formula for the n
+term of the arithmetical progression:
+x(n) = x(1) + d(n − 1) = 0 + 5(n − 1) = 5(n − 1).
+b. x(n)=3x(n − 1) for n > 1, x(1) = 4
+x(n)=3x(n − 1)
+= 3[3x(n − 2)] = 32x(n − 2)
+= 32[3x(n − 3)] = 33x(n − 3)
+= ...
+= 3i
+x(n − i)
+= ...
+= 3n−1x(1) = 4 · 3n−1.
+Note: The solution can also be obtained by using the formula for the n
+term of the geometric progression:
+x(n) = x(1)qn−1 = 4 · 3n−1.
+c. x(n) = x(n − 1) + n for n > 0, x(0) = 0
+x(n) = x(n − 1) + n
+= [x(n − 2) + (n − 1)] + n = x(n − 2) + (n − 1) + n
+= [x(n − 3) + (n − 2)] + (n − 1) + n = x(n − 3) + (n − 2) + (n − 1) + n
+= ...
+= x(n − i)+(n − i + 1) + (n − i + 2) + ... + n
+= ...
+= x(0) + 1 + 2 + ... + n = n(n + 1)
+2 .
+32
+d. x(n) = x(n/2) + n for n > 1, x(1) = 1 (solve for n = 2k)
+x(2k) = x(2k−1)+2k
+= [x(2k−2)+2k−1]+2k = x(2k−2)+2k−1 + 2k
+= [x(2k−3)+2k−2]+2k−1 + 2k = x(2k−3)+2k−2 + 2k−1 + 2k
+= ...
+= x(2k−i
+)+2k−i+1 + 2k−i+2 + ... + 2k
+= ...
+= x(2k−k)+21 + 22 + ... + 2k =1+21 + 22 + ... + 2k
+= 2k+1 − 1=2 · 2k − 1=2n − 1.
+e. x(n) = x(n/3) + 1 for n > 1, x(1) = 1 (solve for n = 3k)
+x(3k) = x(3k−1)+1
+= [x(3k−2) + 1] + 1 = x(3k−2)+2
+= [x(3k−3) + 1] + 2 = x(3k−3)+3
+= ...
+= x(3k−i
+) + i
+= ...
+= x(3k−k) + k = x(1) + k = 1 + log3 n.
+
+** Question 70
+   - PROMPT :: Set up and solve a recurrence relation for the number of calls made by
+F(n), the recursive algorithm for computing n!.
+   - HINT   :: The recurrence relation in question is almost identical to the recurrence
+relation for the number of multiplications, which was set up and solved in
+the section.
+   - ANSWER :: . C(n) = C(n − 1) + 1, C(0) = 1 (there is a call but no multiplications
+when n = 0).
+C(n) = C(n − 1) + 1 = [C(n − 2) + 1] + 1 = C(n − 2) + 2 = ...
+= C(n − i) + i = ... = C(0) + n =1+ n
+
+
+   - ANSWER :: Common searching algorithms include:
+     1. Sequential (Linear) Search: Scan each element in sequence until target is found. Simple but O(n) time complexity.
+     2. Binary Search: For sorted arrays, repeatedly divide search interval in half. O(log n) time complexity.
+     3. Hash-based Search: Use hash function to directly access elements. Average O(1) time complexity.
+     4. Interpolation Search: Like binary search but estimates position based on values. Good for uniformly distributed data.
+
+** Question 28
+   - PROMPT :: Design a simple algorithm for the string-matching problem
+   - HINT   :: Start with the simplest possible approach. Consider how you would manually check if one string appears within another.
+   - ANSWER :: Here's a simple string-matching algorithm:
+     Algorithm StringMatch(text, pattern)
+     //Input: text string of length n, pattern string of length m
+     //Output: index of first match or -1 if not found
+     for i ← 0 to n-m do
+         match ← true
+         for j ← 0 to m-1 do
+             if text[i+j] ≠ pattern[j] then
+                 match ← false
+                 break
+         if match then return i
+     return -1
+
+** Question 29
+   - PROMPT ::  Consider the following problem: Design an algorithm to determine the
+best route for a subway passenger to take from one designated station to
+another in a well-developed subway system similar to those in such cities
+as Washington, D.C., and London, UK.
+a. The problem's statement is somewhat vague, which is typical of reallife problems. In particular, what reasonable criterion can be used for
+defining the "best" route?
+b. How would you model this problem by a graph?
+   - HINT   :: Consider different metrics for "best" route and how subway systems can be represented as graphs with weighted edges.
+   - ANSWER :: 
+     a. Reasonable criteria for "best" route could include:
+        - Minimum total travel time
+        - Minimum number of transfers
+        - Minimum walking distance between transfers
+        - Combination of above factors weighted appropriately
+
+     b. Graph modeling:
+        - Vertices: Subway stations
+        - Edges: Direct connections between stations
+        - Edge weights could represent:
+          * Travel time between stations
+          * Transfer penalties
+          * Distance
+        - Multiple edges for different lines
+        - Can use Dijkstra's algorithm to find optimal path
+
+** Question 30
+   - PROMPT ::  a. Rephrase the traveling salesman problem in combinatorial object terms.
+b. Rephrase the graph-coloring problem in combinatorial object terms.
+   - HINT   :: Think about how these problems can be expressed in terms of permutations and combinations of elements.
+   - ANSWER :: 
+     a. Traveling Salesman Problem:
+        - Find permutation of n cities
+        - Minimizes total distance
+        - Combinatorial object: permutation of n elements
+        - Size of search space: n!
+     
+     b. Graph Coloring Problem:
+        - Find assignment of k colors to n vertices
+        - Combinatorial object: k-ary string of length n
+        - Size of search space: k^n
+        - Must satisfy adjacent vertex constraints
+
+** Question 31
+   - PROMPT :: Design an algorithm for the following problem: Given a set of n points
+in the Cartesian plane, determine whether all of them lie on the same
+circumference.
+   - HINT   :: Consider that any three non-collinear points determine a unique circle. Use this to check all other points.
+   - ANSWER :: Algorithm CheckCircumference(points[1..n]):
+     1. If n ≤ 3: return true
+     2. Find first three non-collinear points p1, p2, p3
+     3. Calculate circle center (h,k) and radius r:
+        - Use equations: (x-h)² + (y-k)² = r²
+        - Solve using three points
+     4. For each remaining point (x,y):
+        - Check if (x-h)² + (y-k)² = r²
+        - If not equal, return false
+     5. Return true
+     Time complexity: O(n)
+
+** Question 32
+   - PROMPT :: Write a program that reads as its inputs the (x, y) coordinates of the
+endpoints of two line segments P1Q1 and P2Q2 and determines whether
+the segments have a common point.
+   - HINT   :: Consider both intersection of lines and whether intersection point lies within segments. Use cross product for orientation tests.
+   - ANSWER :: Algorithm LineIntersection(P1, Q1, P2, Q2):
+     1. Check if lines intersect:
+        - Calculate orientations using cross products
+        - Check if orientations indicate intersection
+     2. If lines intersect:
+        - Calculate intersection point
+        - Verify point lies on both segments
+     3. Handle special cases:
+        - Collinear segments
+        - Overlapping segments
+     4. Return true if common point exists
+     Time complexity: O(1)
+
+** Question 33
+   - PROMPT :: Describe how one can implement each of the following operations on an
+array so that the time it takes does not depend on the array's size n.
+a. Delete the ith element of an array (1 ≤ i ≤ n).
+b. Delete the ith element of a sorted array (the remaining array has
+to stay sorted, of course).
+   - HINT   :: Consider using flags or auxiliary data structures to avoid shifting elements.
+   - ANSWER :: 
+     a. Unsorted array O(1) deletion:
+        - Swap element at i with last element
+        - Decrease array size counter
+        - Trade-off: Loses original order
+     
+     b. Sorted array O(1) deletion:
+        - Use boolean array for deletion flags
+        - Mark element i as deleted
+        - Maintain count of valid elements
+        - Trade-offs:
+          * Extra space for flags
+          * May need periodic cleanup
+          * Must skip deleted elements in traversal
+
+** Question 34
+   - PROMPT :: If you have to solve the searching problem for a list of n numbers, how
+can you take advantage of the fact that the list is known to be sorted?
+Give separate answers for
+a. lists represented as arrays.
+b. lists represented as linked lists
+   - HINT   :: Consider how random access affects search strategies and what optimizations are possible with sorted data.
+   - ANSWER :: 
+     a. Arrays:
+        - Use binary search: O(log n)
+        - Random access enables midpoint calculations
+        - Can eliminate half of search space each step
+        - Much faster than sequential search
+     
+     b. Linked Lists:
+        - Cannot use binary search (no random access)
+        - Use modified sequential search:
+          * Stop when current > target
+          * Early termination improves average case
+        - Still O(n) but fewer comparisons needed
+        - Consider skip lists for better performance
+
+** Question 35
+   - PROMPT :: a. Show the stack after each operation of the following sequence that
+starts with the empty stack:
+push(a), push(b), pop, push(c), push(d), pop
+b. Show the queue after each operation of the following sequence that
+starts with the empty queue:
+enqueue(a), enqueue(b), dequeue, enqueue(c), enqueue(d), dequeue
+   - HINT   :: Remember stack is LIFO (Last In First Out) and queue is FIFO (First In First Out).
+   - ANSWER :: 
+     a. Stack operations:
+        1. push(a): [a]
+        2. push(b): [a,b]
+        3. pop: [a]
+        4. push(c): [a,c]
+        5. push(d): [a,c,d]
+        6. pop: [a,c]
+     
+     b. Queue operations:
+        1. enqueue(a): [a]
+        2. enqueue(b): [a,b]
+        3. dequeue: [b]
+        4. enqueue(c): [b,c]
+        5. enqueue(d): [b,c,d]
+        6. dequeue: [c,d]
+
+** Question 36
+   - PROMPT :: a. Let A be the adjacency matrix of an undirected graph. Explain what
+property of the matrix indicates that
+i. the graph is complete.
+ii. the graph has a loop, i.e., an edge connecting a vertex to itself.
+iii. the graph has an isolated vertex, i.e., a vertex with no edges incident
+to it.
+b. Answer the same questions for the adjacency list representation.
+   - HINT   :: Consider the patterns of 1s and 0s in the matrix, and the lengths and contents of adjacency lists.
+   - ANSWER :: 
+     a. Adjacency Matrix properties:
+        i. Complete graph: All entries are 1 except diagonal
+        ii. Loop: Non-zero element on diagonal (A[i,i] = 1)
+        iii. Isolated vertex: Row/column i all zeros
+     
+     b. Adjacency List properties:
+        i. Complete graph: Each list has n-1 vertices
+        ii. Loop: Vertex appears in its own list
+        iii. Isolated vertex: Empty list for vertex
+
+** Question 37
+   - PROMPT :: Give a detailed description of an algorithm for transforming a free tree
+into a tree rooted at a given vertex of the free tree.
+   - HINT   :: Consider using graph traversal algorithms (BFS/DFS) starting from the desired root.
+   - ANSWER :: Algorithm RootTree(tree, root):
+     1. Initialize:
+        - Create parent array/map
+        - Create children lists for each vertex
+     2. Run BFS/DFS from root:
+        - For each vertex v visited from u:
+          * Set parent[v] = u
+          * Add v to children[u]
+        - Skip edge back to parent
+     3. Convert edges:
+        - Remove undirected edges
+        - Add directed edges parent → children
+     Time complexity: O(V + E)
+
+** Question 38
+   - PROMPT :: Prove the inequalities that bracket the height of a binary tree with n
+vertices:
+log2 n ≤ h ≤ n − 1.
+   - HINT   :: Consider the minimum and maximum number of nodes possible for a given height. Use this to establish both bounds.
+   - ANSWER :: 
+     1. Lower bound (log2 n ≤ h):
+        - Perfect binary tree has maximum nodes
+        - Level i has 2^i nodes
+        - Total nodes n ≤ 2^(h+1) - 1
+        - Solving for h: log2(n+1) - 1 ≤ h
+        - Therefore log2 n ≤ h
+     
+     2. Upper bound (h ≤ n-1):
+        - Linear tree has minimum nodes for height
+        - Each level must have at least one node
+        - Height h requires h+1 nodes
+        - Therefore n ≥ h+1
+        - Thus h ≤ n-1
+
+** Question 39
+   - PROMPT :: Indicate how the ADT priority queue can be implemented as
+a. an (unsorted) array.
+b. a sorted array.
+c. a binary search tree.
+   - HINT   :: Consider the tradeoffs between insertion and deletion operations for each implementation.
+   - ANSWER :: 
+     a. Unsorted array implementation:
+        - Insert: O(1) - add to end
+        - DeleteMax: O(n) - scan for maximum
+        - Space: O(n)
+     
+     b. Sorted array implementation:
+        - Insert: O(n) - maintain sorted order
+        - DeleteMax: O(1) - remove from end
+        - Space: O(n)
+     
+     c. Binary search tree implementation:
+        - Insert: O(log n) average case
+        - DeleteMax: O(log n)
+        - Space: O(n)
+
+** Question 40
+   - PROMPT :: How would you implement a dictionary of a reasonably small size n if
+you knew that all its elements are distinct (e.g., names of 50 states of the
+United States)? Specify an implementation of each dictionary operation.
+   - HINT   :: Consider that with a small, fixed size, you can optimize for the most common operations.
+   - ANSWER :: For a small dictionary (n=50):
+     1. Use a simple array implementation
+     2. Operations:
+        - Search: Binary search O(log n)
+        - Insert: Maintain sorted order O(n)
+        - Delete: O(n)
+        - Space: O(n)
+     3. Justification:
+        - Small n makes linear operations acceptable
+        - Simple implementation reduces overhead
+        - Binary search still efficient for lookups
+
+** Question 41
+   - PROMPT :: For each of the following applications, indicate the most appropriate data
+structure:
+a. answering telephone calls in the order of their known priorities.
+b. sending backlog orders to customers in the order they have been received.
+c. implementing a calculator for computing simple arithmetical expressions.
+   - HINT   :: Match the requirements of each application with the properties of basic data structures.
+   - ANSWER :: 
+     a. Telephone calls by priority:
+        - Use: Priority Queue
+        - Reason: Efficiently handles varying priorities
+     
+     b. Backlog orders:
+        - Use: Queue (FIFO)
+        - Reason: First-come-first-served order
+     
+     c. Calculator expressions:
+        - Use: Stack
+        - Reason: Handles operator precedence and nested expressions
+
+** Question 42
+   - PROMPT :: Anagram checking Design an algorithm for checking whether two given
+words are anagrams, i.e., whether one word can be obtained by permuting the letters of the other. (For example, the words tea and eat are
+anagrams.)
+   - HINT   :: Consider how to compare two words regardless of letter order. Think about character frequency counting.
+   - ANSWER :: Algorithm CheckAnagram(word1, word2):
+     1. If lengths different, return false
+     2. Create array/map freq[26] initialized to 0
+     3. For each char c in word1:
+        - freq[c - 'a']++
+     4. For each char c in word2:
+        - freq[c - 'a']--
+     5. Check if all freq values are 0
+     Time complexity: O(n)
+     Space complexity: O(1)
+
+** Question 43
+   - PROMPT :: For each of the following algorithms, indicate (i) a natural size metric for
+its inputs; (ii) its basic operation; (iii) whether the basic operation count
+can be different for inputs of the same size:
+a. computing the sum of n numbers
+b. computing n!
+c. finding the largest element in a list of n numbers
+d. Euclid’s algorithm
+e. sieve of Eratosthenes
+f. pen-and-pencil algorithm for multiplying two n-digit decimal integers
+   - HINT   :: For each algorithm, consider what determines its workload and what operation is performed most frequently.
+   - ANSWER :: 
+     a. Sum of n numbers:
+        - Size metric: n (number of elements)
+        - Basic operation: addition
+        - Count always same for given size: Yes
+     
+     b. Computing n!:
+        - Size metric: n
+        - Basic operation: multiplication
+        - Count always same: Yes
+     
+     c. Finding largest element:
+        - Size metric: n
+        - Basic operation: comparison
+        - Count always same: Yes
+     
+     d. Euclid's algorithm:
+        - Size metric: number of digits in larger number
+        - Basic operation: division/remainder
+        - Count varies with input values: Yes
+     
+     e. Sieve of Eratosthenes:
+        - Size metric: n (upper bound)
+        - Basic operation: marking multiples
+        - Count always same: Yes
+     
+     f. Multiplication of n-digit integers:
+        - Size metric: n (digits)
+        - Basic operation: single-digit multiplication
+        - Count always same: Yes
+
+** Question 44
+   - PROMPT :: a. Consider the definition-based algorithm for adding two n-by-n matrices. What is its basic operation? How many times is it performed as
+a function of the matrix order n? As a function of the total number of
+elements in the input matrices?
+b. Answer the same questions for the definition-based algorithm for matrix
+multiplication.
+   - HINT   :: Consider the basic operations needed for matrix addition and multiplication based on their mathematical definitions.
+   - ANSWER :: 
+     a. Matrix Addition:
+        - Basic operation: Addition of corresponding elements
+        - Count: n² operations (one per matrix element)
+        - As function of total elements N = n²: N operations
+     
+     b. Matrix Multiplication:
+        - Basic operation: Multiplication of element pairs
+        - Count: n³ operations (n multiplications for each of n² elements)
+        - As function of total elements N = n²: N^(3/2) operations
+
+** Question 45
+   - PROMPT ::  Consider a variation of sequential search that scans a list to return the
+number of occurrences of a given search key in the list. Will its efficiency
+differ from the efficiency of classic sequential search?
+   - HINT   :: Consider how the need to continue searching after finding a match affects the algorithm.
+   - ANSWER :: 
+     - The efficiency will be different in the best case (same as classic)
+     - Must always scan entire list in worst and average cases
+     - Classic search can stop at first match
+     - Time complexity:
+       * Best case: O(1) - same as classic
+       * Worst case: O(n) - must scan entire list
+       * Average case: O(n) - must scan entire list
+
+** Question 46
+   - PROMPT :: a. Glove selection There are 22 gloves in a drawer: 5 pairs of red gloves,
+4 pairs of yellow, and 2 pairs of green. You select the gloves in the dark
+and can check them only after a selection has been made. What is the
+smallest number of gloves you need to select to have at least one matching
+pair in the best case? in the worst case? (after [Mos01], #18)
+b. Missing socks Imagine that after washing 5 distinct pairs of socks,
+you discover that two socks are missing. Of course, you would like to have
+the largest number of complete pairs remaining. Thus, you are left with
+4 complete pairs in the best-case scenario and with 3 complete pairs in
+the worst case. Assuming that the probability of disappearance for each
+of the 10 socks is the same, find the probability of the best-case scenario;
+the probability of the worst-case scenario; the number of pairs you should
+expect in the average case. (after [Mos01], #48) 
+   - HINT   :: Use probability theory and combinatorics to analyze the possible outcomes.
+   - ANSWER :: 
+     a. Glove selection:
+        - Best case: 2 gloves (same color)
+        - Worst case: 12 gloves (could get one of each color first)
+     
+     b. Missing socks:
+        - Best case probability: C(2,2) * C(8,0) / C(10,2) = 28/45
+        - Worst case probability: C(2,1) * C(8,1) / C(10,2) = 16/45
+        - Expected pairs: (4*28/45 + 3*16/45) = 3.62 pairs
+
+** Question 47
+   - PROMPT :: a. Prove formula (2.1) for the number of bits in the binary representation
+of a positive integer.
+b. What would be the analogous formula for the number of decimal digits?
+c. Explain why, within the accepted analysis framework, it does not matter whether we use binary or decimal digits in measuring n’s size.
+   - HINT   :: Consider the relationship between numbers and their binary/decimal representations.
+   - ANSWER :: 
+     a. Binary representation:
+        - For n > 0, ⌊log₂n⌋ + 1 bits needed
+        - Proof: 2^k ≤ n < 2^(k+1) where k = ⌊log₂n⌋
+     
+     b. Decimal representation:
+        - For n > 0, ⌊log₁₀n⌋ + 1 digits needed
+     
+     c. Both are logarithmic:
+        - log₂n = log₁₀n / log₁₀2
+        - Differ only by constant factor
+        - Same asymptotic complexity class
+
+** Question 48
+   - PROMPT ::  Suggest how any sorting algorithm can be augmented in a way to make
+the best-case count of its key comparisons equal to just n − 1 (n is a list’s
+size, of course). Do you think it would be a worthwhile addition to any
+sorting algorithm?
+   - HINT   :: Consider checking if the list is already sorted before proceeding with the full sort.
+   - ANSWER :: 
+     - Add initial pass to check if array is sorted
+     - Requires n-1 comparisons
+     - If sorted, stop; if not, proceed with normal sort
+     - Not worthwhile because:
+       * Adds overhead to already-sorted cases
+       * Most real data is not perfectly sorted
+       * Minimal benefit for random data
+
+** Question 49
+   - PROMPT ::  Gaussian elimination, the classic algorithm for solving systems of n linear
+equations in n unknowns, requires about 1
+3n3 multiplications, which is the
+algorithm’s basic operation.
+a. How much longer should you expect Gaussian elimination to work
+on a system of 1000 equations versus a system of 500 equations?
+b. You are considering buying a computer that is 1000 times faster than
+the one you currently have. By what factor will the faster computer increase the sizes of systems solvable in the same amount of time as on the
+old computer?
+   - HINT   :: Use the cubic relationship between problem size and operations.
+   - ANSWER :: 
+     a. Time comparison:
+        - T(1000)/T(500) = 1000³/500³ = 8
+        - Will take 8 times longer
+     
+     b. Size increase:
+        - New_size³/Old_size³ = 1000
+        - New_size = Old_size * ∛1000 ≈ 10
+        - Can solve problems ~10 times larger
+
+** Question 50
+   - PROMPT :: Indicate whether the first function of each of the following pairs has a
+smaller, same, or larger order of growth (to within a constant multiple)
+than the second function.
+a. n(n + 1) and 2000n² b. 100n² and 0.01n³
+c. log₂n and ln n d. log₂
+2 n and log₂ n2
+e. 2n−1 and 2n f. (n − 1)! and n!
+   - HINT   :: Compare the growth rates by taking limits or analyzing dominant terms.
+   - ANSWER :: 
+     a. n(n + 1) and 2000n²: Same order (both Θ(n²))
+     b. 100n² and 0.01n³: n² is smaller (n³ dominates)
+     c. log₂n and ln n: Same order (differ by constant)
+     d. log₂²n and log₂(n²): Same order (log₂(n²) = 2log₂n)
+     e. 2^(n-1) and 2^n: Same order (differ by constant factor)
+     f. (n-1)! and n!: Same order (differ by factor of n)
+
+** Question 51
+   - PROMPT :: Invention of chess According to a well-known legend, the game of chess
+was invented many centuries ago in northwestern India by a sage named
+Shashi. When he took his invention to his king, the king liked the game
+2
+so much that he offered the inventor any reward he wanted. Sashi asked
+for some grain to be obtained as follows: just a single grain of wheat was
+to be placed on the first square of the chess board, two on the second, four
+on the third, eight on the fourth, and so on, until all 64 squares had been
+filled. What would the ultimate result of this algorithm have been?
+   - HINT   :: Consider exponential growth: each square doubles the previous number of grains.
+   - ANSWER :: 
+     - Each square gets 2^(k-1) grains where k is square number (1 to 64)
+     - Total grains = 2⁰ + 2¹ + 2² + ... + 2⁶³
+     - Sum = 2⁶⁴ - 1
+     - This equals 18,446,744,073,709,551,615 grains
+     - Far more wheat than has ever existed on Earth
+     - The king could not fulfill this request
+
+** Question 52
+   - PROMPT :: Use the most appropriate notation among O, Θ, and Ω to indicate the
+time efficiency class of sequential search (see Section 2.1)
+a. in the worst case.
+b. in the best case.
+c. in the average case
+   - HINT   :: Consider the best, worst, and average cases separately and their respective time complexities.
+   - ANSWER :: 
+     a. Worst case: Θ(n) - must scan entire array
+     b. Best case: O(1) - first element is target
+     c. Average case: Θ(n) - expected to scan half array
+
+** Question 53
+   - PROMPT ::  Use the informal definitions of O, Θ, and Ω to determine whether the following assertions are true or false.
+a. n(n + 1)/2 ∈ O(n3) b. n(n + 1)/2 ∈ O(n2)
+c. n(n + 1)/2 ∈ Θ(n3) d. n(n + 1)/2 ∈ Ω(n)
+   - HINT   :: Compare growth rates and apply definitions of asymptotic notations.
+   - ANSWER :: 
+     a. n(n+1)/2 ∈ O(n³): True (quadratic is bounded by cubic)
+     b. n(n+1)/2 ∈ O(n²): True (is quadratic)
+     c. n(n+1)/2 ∈ Θ(n³): False (not cubic growth)
+     d. n(n+1)/2 ∈ Ω(n): True (grows faster than linear)
+
+** Question 54
+   - PROMPT :: For each of the following functions, indicate the class Θ(g(n)) the function
+belongs to. (Use the simplest g(n) possible in your answers.) Prove your
+assertions.
+a. (n2 + 1)10 b. √
+10n2 + 7n + 3
+c. 2n lg(n + 2)2 + (n + 2)2 lg n
+2 d. 2n+1 + 3n−1
+e. log2 n
+   - HINT   :: Focus on the dominant terms and simplify expressions.
+   - ANSWER :: 
+     a. (n² + 1)¹⁰ ∈ Θ(n²⁰)
+     b. √(10n² + 7n + 3) ∈ Θ(n)
+     c. 2n lg(n + 2)² + (n + 2)² lg n² ∈ Θ(n log² n)
+     d. 2^(n+1) + 3^(n-1) ∈ Θ(3^n)
+     e. log₂ n ∈ Θ(log n)
+** Question 55
+   - PROMPT ::  a. Table 2.1 contains values of several functions that often arise in analysis
+of algorithms. These values certainly suggest that the functions
+log n, n, n log n, n2, n3, 2n, n!
+are listed in increasing order of their order of growth. Do these values
+prove this fact with mathematical certainty?
+b. Prove that the functions are indeed listed in increasing order of their
+order of growth.
+   - HINT   :: Consider that numerical examples alone don't constitute a proof. For part b, use limits of ratios between consecutive functions.
+   - ANSWER :: 
+     a. No, numerical values alone don't prove order of growth with certainty:
+        - Values only show behavior at specific points
+        - Need mathematical proof for all n ≥ n₀
+     
+     b. Proof using limits of ratios:
+        1. lim(n→∞) n/log n = ∞ 
+        2. lim(n→∞) n log n/n = log n → ∞
+        3. lim(n→∞) n²/n log n = n/log n → ∞
+        4. lim(n→∞) n³/n² = n → ∞
+        5. lim(n→∞) 2ⁿ/n³ → ∞
+        6. lim(n→∞) n!/2ⁿ → ∞
+        Therefore, each function grows strictly faster than previous one.
+
+** Question 56
+   - PROMPT :: Order the following functions according to their order of growth (from the
+lowest to the highest):
+(n−2)!, 5 lg(n+ 100)10, 22n, 0.001n4 + 3n3 + 1, ln2 n, √3 n, 3n
+   - HINT   :: Compare functions by taking limits of their ratios. Remember that constants and lower-order terms don't affect asymptotic growth.
+   - ANSWER :: Ordered from lowest to highest growth:
+     1. ln² n (logarithmic)
+     2. 5 lg(n+100)¹⁰ (poly-logarithmic)
+     3. √3 n (square root)
+     4. 0.001n⁴ + 3n³ + 1 (polynomial)
+     5. 2²ⁿ (double exponential)
+     6. 3ⁿ (exponential)
+     7. (n-2)! (factorial)
+
+** Question 57
+   - PROMPT ::a. Prove that every polynomial of degree k, p(n) = aknk + ak−1nk−1 +
+... + a0, with ak > 0 belongs to Θ(nk).
+b. Prove that exponential functions an have different orders of growth
+for different values of base a > 0. 
+   - HINT   :: For (a), consider the bounds needed for Θ notation. For (b), use the ratio test between different exponential functions.
+   - ANSWER :: 
+     a. Proof for polynomials:
+        Let c₁ = ak/2 and c₂ = 2ak
+        For large enough n:
+        c₁nᵏ ≤ aknᵏ + ak₋₁nᵏ⁻¹ + ... + a₀ ≤ c₂nᵏ
+        Therefore p(n) ∈ Θ(nᵏ)
+     
+     b. Proof for exponentials:
+        For a > b > 0:
+        lim(n→∞) bⁿ/aⁿ = lim(n→∞) (b/a)ⁿ = 0
+        Therefore aⁿ grows faster than bⁿ
+
+** Question 58
+   - PROMPT :: Prove (by using the definitions of the notations involved) or disprove (by
+giving a specific counterexample) the following assertions.
+a. If t(n) ∈ O(g(n)), then g(n) ∈ Ω(t(n)).
+b. Θ(αg(n)) = Θ(g(n)), where α > 0.
+c. Θ(g(n)) = O(g(n)) ∩ Ω(g(n)).
+d. For any two nonnegative functions t(n) and g(n) defined on the set of
+nonnegative integers, either t(n) ∈ O(g(n)), or t(n) ∈ Ω(g(n)), or both.
+   - HINT   :: Use the formal definitions of O, Ω, and Θ notations. For (d), consider functions that oscillate.
+   - ANSWER :: 
+     a. False. Counterexample: t(n)=1, g(n)=n
+     b. True. Constants factor out in Θ notation
+     c. True. By definition of Θ notation
+     d. False. Counterexample: t(n)=n if n even, n² if n odd
+        g(n)=n² if n even, n if n odd
+
+** Question 59
+   - PROMPT :: Prove the section's theorem for
+a. Ω notation.
+b. Θ notation.
+   - HINT   :: Use the basic definitions and properties of limits. Consider how Ω relates to O notation.
+   - ANSWER :: 
+     a. For Ω notation:
+        f(n) ∈ Ω(g(n)) ⟺ lim(n→∞) f(n)/g(n) > 0
+        Proof follows from definition:
+        ∃c,n₀: f(n) ≥ cg(n) for n ≥ n₀
+     
+     b. For Θ notation:
+        f(n) ∈ Θ(g(n)) ⟺ 0 < lim(n→∞) f(n)/g(n) < ∞
+        Equivalent to f(n) ∈ O(g(n)) and f(n) ∈ Ω(g(n))
+
+** Question 60
+   - PROMPT :: We mentioned in this section that one can check whether all elements of an
+array are distinct by a two-part algorithm based on the array's presorting.
+a. If the presorting is done by an algorithm with the time efficiency in
+Θ(n log n), what will be the time efficiency class of the entire algorithm?
+b. If the sorting algorithm used for presorting needs an extra array of
+size n, what will be the space efficiency class of the entire algorithm?
+   - HINT   :: Consider both phases: sorting and checking consecutive elements. For space, consider both temporary and permanent storage.
+   - ANSWER :: 
+     a. Time efficiency: Θ(n log n)
+        - Sorting phase: Θ(n log n)
+        - Checking phase: Θ(n)
+        - Overall dominated by sorting: Θ(n log n)
+     
+     b. Space efficiency: Θ(n)
+        - Extra array for sorting: Θ(n)
+        - No additional space for checking
+        - Total space: Θ(n)
+
+** Question 61
+   - PROMPT ::  Door in a wall You are facing a wall that stretches infinitely in both
+directions. There is a door in the wall, but you know neither how far
+away nor in which direction. You can see the door only when you are
+right next to it. Design an algorithm that enables you to reach the door
+by walking at most O(n) steps where n is the (unknown to you) number
+of steps between your initial position and the door. [Par95], #652
+   - HINT   :: Consider alternating between directions and increasing the distance exponentially.
+   - ANSWER :: Algorithm FindDoor:
+     1. Let i = 1
+     2. While door not found:
+        - Walk i steps right
+        - If door found, stop
+        - Walk 2i steps left
+        - If door found, stop
+        - Walk i steps right (return to start)
+        - i = 2i
+     
+     Proof of O(n):
+     - If door is n steps away
+     - Will find it when 2ᵏ ≥ n
+     - Total steps = Σ(2ⁱ) ≤ 4n
+     Therefore complexity is O(n)
+
+
+
+
+** Question 62
+   - PROMPT :: Compute the following sums.
+a. 1+3+5+7+ ... + 999  
+b. 2 + 4 + 8 + 16 + ... + 1024  
+c. n+1  
+i=3 1  
+d. n+1  
+i=3 i  
+e. n−1  
+i=0 i(i + 1)  
+f. n  
+j=1 3j+1  
+g. n  
+i=1  
+n  
+j=1 ij  
+h. n−1  
+i=0 1/i(i + 1)  
+   - HINT   :: For each part, identify the type of sequence (arithmetic, geometric, summation formulas, etc.) and use the appropriate formula to compute the result.  
+   - ANSWER ::  
+a. The sequence is an arithmetic progression with the first term \( a = 1 \), common difference \( d = 2 \), and the last term \( l = 999 \). Using the formula for the sum of an arithmetic sequence:  
+\[ S = \frac{n}{2} (a + l) \], where \( n \) is the number of terms:  
+\[ n = \frac{l - a}{d} + 1 = \frac{999 - 1}{2} + 1 = 500 \]  
+\[ S = \frac{500}{2} (1 + 999) = 250 \times 1000 = 250,000 \]  
+
+b. The sequence is a geometric progression with \( a = 2 \), \( r = 2 \), and \( l = 1024 \). Using the sum formula for a geometric progression:  
+\[ S = a \frac{r^n - 1}{r - 1} \], where \( n \) is the number of terms:  
+\[ n = \log_2(1024) = 10 \]  
+\[ S = 2 \frac{2^{10} - 1}{2 - 1} = 2 \times (1024 - 1) = 2 \times 1023 = 2046 \]  
+
+c. \(\sum_{i=3}^{n+1} 1 = (n + 1) - 3 + 1 = n - 2 \).  
+
+d. \(\sum_{i=3}^{n+1} i = \frac{(n+1)(n+2)}{2} - \frac{(3)(2)}{2} = \frac{(n+1)(n+2) - 6}{2} \).  
+
+e. \(\sum_{i=0}^{n-1} i(i+1) = \sum_{i=0}^{n-1} (i^2 + i) = \sum_{i=0}^{n-1} i^2 + \sum_{i=0}^{n-1} i = \frac{(n-1)n(2n-1)}{6} + \frac{(n-1)n}{2} = \frac{(n-1)n(2n+2)}{6} = \frac{(n-1)n(n+1)}{3} \).  
+
+f. \(\sum_{j=1}^{n} (3j + 1) = 3\sum_{j=1}^n j + \sum_{j=1}^n 1 = 3 \frac{n(n+1)}{2} + n = \frac{3n(n+1)}{2} + n = \frac{3n^2 + 3n + 2n}{2} = \frac{3n^2 + 5n}{2} \).  
+
+g. \(\sum_{i=1}^{n} \sum_{j=1}^{n} ij = \left(\sum_{i=1}^n i\right) \left(\sum_{j=1}^n j\right) = \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^2(n+1)^2}{4} \).  
+
+h. \(\sum_{i=0}^{n-1} \frac{1}{i(i+1)} = \sum_{i=0}^{n-1} \left(\frac{1}{i} - \frac{1}{i+1}\right) = 1 - \frac{1}{n} = \frac{n-1}{n} \).  
+
+
+** Question 63
+   - PROMPT :: Find the order of growth of the following sums.
+a. n−1
+i=0 (i
+2+1)2 b. n−1
+i=2 lg i
+2
+c. n
+i=1(i + 1)2i−1 d. n−1
+i=0
+i−1
+j=0(i + j)
+Use the Θ(g(n)) notation with the simplest function g(n) possible.
+   - HINT   :: Break down each sum and identify the dominant terms. For nested sums, work from inside out.
+   - ANSWER :: 
+     a. Θ(n⁵) - The dominant term is i⁴ when expanding (i² + 1)²
+     b. Θ(n log² n) - Sum of log² terms from 2 to n-1
+     c. Θ(2ⁿ) - The 2ⁱ term dominates and sums to approximately 2ⁿ
+     d. Θ(n³) - The nested sum with i and j terms yields cubic growth
+
+** Question 64
+   - PROMPT :: The sample variance of n measurements x1, x2, ..., xn can be computed as
+n
+i=1(xi − x¯)2
+n − 1
+where x¯ =
+n
+i=1 xi
+n
+or
+n
+i=1 x2
+i − (
+n
+i=1 xi)2/n
+n − 1 .
+Find and compare the number of divisions, multiplications, and additions/subtractions (additions and subtractions are usually bunched together) that are required for computing the variance according to each of
+these formulas.
+   - HINT   :: Break down each formula step by step and count operations. Consider that x̄ must be computed first in the first formula.
+   - ANSWER :: First formula:
+     1. Computing x̄:
+        - n-1 additions for Σxi
+        - 1 division
+     2. Computing (xi - x̄)²:
+        - n subtractions
+        - n multiplications
+     3. Final steps:
+        - n-1 additions
+        - 1 division
+     Total: 2n-1 additions/subtractions, n multiplications, 2 divisions
+
+     Second formula:
+     1. Computing Σxi²:
+        - n multiplications
+        - n-1 additions
+     2. Computing (Σxi)²:
+        - n-1 additions
+        - 1 multiplication
+        - 1 division
+     3. Final steps:
+        - 1 subtraction
+        - 1 division
+     Total: n additions/subtractions, n+1 multiplications, 2 divisions
+
+     The second formula is slightly more efficient.
+
+** Question 65
+   - PROMPT :: Consider the following algorithm.
+Algorithm Mystery( n)
+//Input: A nonnegative integer n
+S ← 0
+for i ← 1 to n do
+S ← S + i ∗ i
+return S
+a. What does this algorithm compute?
+b. What is its basic operation?
+c. How many times is the basic operation executed?
+d. What is the efficiency class of this algorithm?
+e. Suggest an improvement or a better algorithm altogether and indicate its efficiency class. If you cannot do it, try to prove that, in fact, it
+cannot be done.
+   - HINT   :: Look for patterns in the sum. Consider the formula for sum of squares: Σi² = n(n+1)(2n+1)/6
+   - ANSWER :: 
+     a. Computes the sum of squares from 1 to n: Σi²
+     b. Basic operation is multiplication (i * i)
+     c. Executes n times
+     d. O(n) time complexity
+     e. Improvement: Use formula S = n(n+1)(2n+1)/6
+        - Reduces to O(1) with just 3 multiplications and 2 additions
+        - This is optimal as it directly computes result
+
+** Question 66
+   - PROMPT :: Consider the following algorithm.
+Algorithm Secret(A[0..n − 1])
+//Input: An array A[0..n − 1] of n real numbers
+minval ← A[0]; maxval ← A[0]
+for i ← 1 to n − 1 do
+if A[i] < minval
+minval ← A[i]
+if A[i] > maxval
+maxval ← A[i]
+return maxval − minval
+Answer questions a—e of Problem 4 about this algorithm.
+   - HINT   :: 
+   - ANSWER :: 
+     a. Computes the range (max - min) of the array.
+     b. Basic operation: Comparison.
+     c. Executed 2(n-1) times.
+     d. Efficiency class: Θ(n).
+     e. Optimal as is; cannot be improved beyond linear time.
+
+** Question 67
+   - PROMPT :: Consider the following algorithm.
+Algorithm Enigma(A[0..n − 1, 0..n − 1])
+//Input: A matrix A[0..n − 1, 0..n − 1] of real numbers
+for i ← 0 to n − 2 do
+for j ← i + 1 to n − 1 do
+if A[i, j] = A[j, i]
+return false
+return true
+Answer the questions a—e of Problem 4 about this algorithm.
+   - HINT   :: 
+   - ANSWER :: a. The algorithm returns "true" if its input matrix is symmetric and
+"false" if it is not.
+b. Comparison of two matrix elements.
+c. Cworst(n) = n−2
+i=0
+n−1
+j=i+1
+1 = n−2
+i=0
+[(n − 1) − (i + 1) + 1)
+= n−2
+i=0
+(n − 1 − i)=(n − 1) + (n − 2) + ... +1= (n−1)n
+2 .
+d. Quadratic: Cworst(n) ∈ Θ(n2) (or C(n) ∈ O(n2)).
+e. The algorithm is optimal because any algorithm that solves this problem must, in the worst case, compare (n − 1)n/2 elements in the uppertriangular part of the matrix with their symmetric counterparts in the
+lower-triangular part, which is all this algorithm does.
+
+** Question 68
+   - PROMPT ::  Improve the implementation of the matrix multiplication algorithm (see
+Example 3) by reducing the number of additions made by the algorithm.
+What effect will this change have on the algorithm's efficiency?
+   - HINT   :: Computing a sum of n numbers can be done with n − 1 additions. How
+many does the algorithm make in computing each element of the product
+matrix?
+   - ANSWER :: Replace the body of the j loop by the following fragment:
+C[i, j] ← A[i, 0] ∗ B[0, j]
+for k ← 1 to n − 1 do
+C[i, j] ← C[i, j] + A[i, k] ∗ B[k, j]
+This will decrease the number of additions from n3 to n3 − n2, but the
+number of multiplications will still be n3. The algorithm's efficiency class
+will remain cubic.
+
+
+
+
+
+
+
+
+
+
+** Question 69
+   - PROMPT :: Solve the following recurrence relations.
+a. x(n) = x(n − 1) + 5 for n > 1, x(1) = 0
+b. x(n)=3x(n − 1) for n > 1, x(1) = 4
+c. x(n) = x(n − 1) + n for n > 0, x(0) = 0
+d. x(n) = x(n/2) + n for n > 1, x(1) = 1 (solve for n = 2k)
+e. x(n) = x(n/3) + 1 for n > 1, x(1) = 1 (solve for n = 3k)
+   - HINT   ::Each of these recurrences can be solved by the method of backward substitutions. 
+   - ANSWER ::  a. x(n) = x(n − 1) + 5 for n > 1, x(1) = 0
+x(n) = x(n − 1) + 5
+= [x(n − 2) + 5] + 5 = x(n − 2) + 5 · 2
+= [x(n − 3) + 5] + 5 · 2 = x(n − 3) + 5 · 3
+= ...
+= x(n − i)+5 · i
+= ...
+= x(1) + 5 · (n − 1) = 5(n − 1).
+Note: The solution can also be obtained by using the formula for the n
+term of the arithmetical progression:
+x(n) = x(1) + d(n − 1) = 0 + 5(n − 1) = 5(n − 1).
+b. x(n)=3x(n − 1) for n > 1, x(1) = 4
+x(n)=3x(n − 1)
+= 3[3x(n − 2)] = 32x(n − 2)
+= 32[3x(n − 3)] = 33x(n − 3)
+= ...
+= 3i
+x(n − i)
+= ...
+= 3n−1x(1) = 4 · 3n−1.
+Note: The solution can also be obtained by using the formula for the n
+term of the geometric progression:
+x(n) = x(1)qn−1 = 4 · 3n−1.
+c. x(n) = x(n − 1) + n for n > 0, x(0) = 0
+x(n) = x(n − 1) + n
+= [x(n − 2) + (n − 1)] + n = x(n − 2) + (n − 1) + n
+= [x(n − 3) + (n − 2)] + (n − 1) + n = x(n − 3) + (n − 2) + (n − 1) + n
+= ...
+= x(n − i)+(n − i + 1) + (n − i + 2) + ... + n
+= ...
+= x(0) + 1 + 2 + ... + n = n(n + 1)
+2 .
+32
+d. x(n) = x(n/2) + n for n > 1, x(1) = 1 (solve for n = 2k)
+x(2k) = x(2k−1)+2k
+= [x(2k−2)+2k−1]+2k = x(2k−2)+2k−1 + 2k
+= [x(2k−3)+2k−2]+2k−1 + 2k = x(2k−3)+2k−2 + 2k−1 + 2k
+= ...
+= x(2k−i
+)+2k−i+1 + 2k−i+2 + ... + 2k
+= ...
+= x(2k−k)+21 + 22 + ... + 2k =1+21 + 22 + ... + 2k
+= 2k+1 − 1=2 · 2k − 1=2n − 1.
+e. x(n) = x(n/3) + 1 for n > 1, x(1) = 1 (solve for n = 3k)
+x(3k) = x(3k−1)+1
+= [x(3k−2) + 1] + 1 = x(3k−2)+2
+= [x(3k−3) + 1] + 2 = x(3k−3)+3
+= ...
+= x(3k−i
+) + i
+= ...
+= x(3k−k) + k = x(1) + k = 1 + log3 n.
+
+** Question 70
+   - PROMPT :: Set up and solve a recurrence relation for the number of calls made by
+F(n), the recursive algorithm for computing n!.
+   - HINT   :: The recurrence relation in question is almost identical to the recurrence
+relation for the number of multiplications, which was set up and solved in
+the section.
+   - ANSWER :: . C(n) = C(n − 1) + 1, C(0) = 1 (there is a call but no multiplications
+when n = 0).
+C(n) = C(n − 1) + 1 = [C(n − 2) + 1] + 1 = C(n − 2) + 2 = ...
+= C(n − i) + i = ... = C(0) + n =1+ n
+
+
